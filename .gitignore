@@ -1,0 +1,11 @@
+# Created by .ignore support plugin (hsz.mobi)
+/archetype.iml
+/allure-results/
+/.idea/
+/.allure/
+
+/target/
+/pom.xml
+!/pom.xml
+*.iml
+target/
