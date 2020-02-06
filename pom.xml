@@ -28,9 +28,12 @@
             <artifactId>selenium-java</artifactId>
             <version>3.141.59</version>
         </dependency>
-
-
+        <!--https://intellij-support.jetbrains.com/hc/en-us/community/posts/360000081890-WARNING-TestEngine-with-ID-junit-vintage-failed-to-discover-tests-->
+        <dependency>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
+            <version>5.2.0</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
-
-
 </project>
