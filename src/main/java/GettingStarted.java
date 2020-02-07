@@ -9,7 +9,7 @@ public class GettingStarted {
 	@Test
 	public void testGoogleSearch() throws InterruptedException {
 		// Optional. If not specified, WebDriver searches the PATH for chromedriver.
-		System.setProperty("webdriver.chrome.driver", "/Users/privatceb/Documents/SELENIUM/selenium/src/main/resources/drivers/chromedriver");
+		System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver");
 		WebDriver driver = new ChromeDriver();
 		driver.get("http://www.google.com/");
 		Thread.sleep(5000);  // Let the user actually see something!
