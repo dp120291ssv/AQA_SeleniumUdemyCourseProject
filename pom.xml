@@ -7,27 +7,49 @@
     <groupId>udemy</groupId>
     <artifactId>selenium-course</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+
+
+
+
     <dependencies>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
             <version>5.5.0</version>
         </dependency>
+
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>5.5.0</version>
         </dependency>
+
         <dependency>
             <groupId>org.junit.platform</groupId>
             <artifactId>junit-platform-runner</artifactId>
             <version>1.5.1</version>
         </dependency>
+
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>3.141.59</version>
         </dependency>
+
         <!--https://intellij-support.jetbrains.com/hc/en-us/community/posts/360000081890-WARNING-TestEngine-with-ID-junit-vintage-failed-to-discover-tests-->
         <dependency>
             <groupId>org.junit.vintage</groupId>
@@ -36,4 +58,8 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+
+
+
 </project>
