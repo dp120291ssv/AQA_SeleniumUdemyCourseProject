@@ -11,7 +11,6 @@ public class GettingStarted {
 
 	@Test
 	public void testGoogleSearch() throws InterruptedException {
-
 		WebDriver driver = new ChromeDriver();
 		System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver");
 		driver.get("http://www.google.com/");
@@ -45,28 +44,5 @@ public class GettingStarted {
 //		System.out.println("pageSource->" + pageSource);
 
 		driver.quit();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	}
 }
