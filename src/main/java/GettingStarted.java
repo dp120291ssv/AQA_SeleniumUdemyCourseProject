@@ -14,6 +14,11 @@ public class GettingStarted {
 		WebElement searchBox = driver.findElement(By.name("q"));
 		searchBox.sendKeys("ChromeDriver");
 		searchBox.submit();
+
+		driver.navigate().to("https://selenium.dev");
+		driver.navigate().back();
+		driver.navigate().forward();
+		driver.navigate().refresh();
 		driver.quit();
 	}
 }
