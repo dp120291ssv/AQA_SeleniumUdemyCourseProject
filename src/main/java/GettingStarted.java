@@ -26,6 +26,16 @@ public class GettingStarted {
 		WebElement closeElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@title='Close']")));
 		closeElement.click();
 
-		Assert.assertTrue(wait.until(ExpectedConditions.stalenessOf(commentField)));
+		wait.until(ExpectedConditions.urlContains("money-transfer/card"));
+
+		wait.until(ExpectedConditions.attributeContains(By.xpath("//textarea[@data-qa-node='comment']"), "class", "visible"));
+
+		WebElement buttonRefresh = driver.findElement(By.xpath("//button[@data-qa-value='submit']"));
+		wait.until(ExpectedConditions.textToBePresentInElement(buttonRefresh, "Refresh"));
+
+		wait.until(ExpectedConditions.elementToBeClickable(buttonRefresh));
+
+
+
 	}
 }
