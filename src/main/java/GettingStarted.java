@@ -18,10 +18,8 @@ public class GettingStarted {
 		driver.navigate().to("https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/hidden");
 
 		driver.switchTo().frame("frame_Example");
-		
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//button[@id='okButton']")));
-		WebElement buttonOk = driver.findElement(By.xpath("//div[@id='welcome']/button[@id='okButton']"));
 
+		WebElement buttonOk = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@id='okButton']")));
 		buttonOk.click();
 
 		WebElement textWelcom = driver.findElement(By.xpath("//div[@id='awesome']/h1"));
