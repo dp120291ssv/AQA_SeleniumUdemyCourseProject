@@ -1,4 +1,6 @@
 package authorization.positive;
 
-public class AuthorizationPositiveTest {
+import base.BaseTest;
+
+public class AuthorizationPositiveTest extends BaseTest{
 }
