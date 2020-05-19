@@ -5,7 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import pages.authorization.AuthorizationPage;
 import pages.repository.RepositoryPage;
 import java.util.concurrent.TimeUnit;
-import static constants.Constants.TimoutVeriables.IMPLICIT_WAIT;
+import static constants.Constants.TimeoutVariables.IMPLICIT_WAIT;
 
 public class CommonActions {
 

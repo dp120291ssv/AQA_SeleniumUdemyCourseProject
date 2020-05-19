@@ -2,6 +2,8 @@ package pages.authorization;
 
 import org.junit.Assert;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.base.BasePage;
@@ -18,6 +20,34 @@ public class AuthorizationPage extends BasePage{
 		PageFactory.initElements(driver, this);
 	}
 
+	@FindBy(xpath = "//a[@href='/login']")
+	WebElement loginButton;
+
+	@FindBy(xpath = "//input[@name='login']")
+	WebElement inputFieldName;
+
+	@FindBy(xpath = "//input[@name='password']")
+	WebElement inputFieldPassword;
+
+	@FindBy(xpath = "//input[@value='Sign in']")
+	WebElement submitLogin;
+
+	@FindBy(xpath = "//summary[@data-ga-click='Header, show menu, icon:avatar']")
+	WebElement userAvatar;
+
+	public AuthorizationPage login(String userLogin, String userPassword){
+		explicitWait.until(ExpectedConditions.elementToBeClickable(loginButton)).click();
+		explicitWait.until(ExpectedConditions.visibilityOf(inputFieldName)).sendKeys(userLogin);
+		explicitWait.until(ExpectedConditions.visibilityOf(inputFieldPassword)).sendKeys(userPassword);
+		explicitWait.until(ExpectedConditions.elementToBeClickable(submitLogin)).click();
+		return this;
+	}
+
+	public AuthorizationPage checkIsUserAuthorized(){
+		explicitWait.until(ExpectedConditions.visibilityOf(userAvatar));
+		return this;
+	}
+
 //	public void test(){
 //		driver.get("https://github.com/");
 //
@@ -28,12 +58,16 @@ public class AuthorizationPage extends BasePage{
 //
 //		explicitWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@name='password']")))
 //			.sendKeys("dp120291ssv1");
-//
+
+
 //		explicitWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@value='Sign in']")))
 //			.click();
 //
 //		explicitWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//summary[@data-ga-click='Header, show menu, icon:avatar']")))
 //			.click();
+
+
+
 //
 //		Assert.assertEquals("udemyTest1", explicitWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//strong[@class='css-truncate-target']")))
 //			.getText());
