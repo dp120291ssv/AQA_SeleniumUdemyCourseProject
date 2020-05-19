@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.authorization.AuthorizationPage;
 import pages.repository.RepositoryPage;
-
 import java.util.concurrent.TimeUnit;
 import static constants.Constants.TimoutVeriables.IMPLICIT_WAIT;
 
@@ -14,6 +13,10 @@ public class CommonActions {
 
 	AuthorizationPage authorizationPage;
 	RepositoryPage repositoryPage;
+
+	public CommonActions(){
+		initDriver();
+	}
 
 	// инициализация driver'a
 	public WebDriver initDriver() {
@@ -31,6 +34,14 @@ public class CommonActions {
 			return new AuthorizationPage(driver);
 		} else {
 			return authorizationPage;
+		}
+	}
+
+	public RepositoryPage getRepositoryPage() {
+		if (repositoryPage == null) {
+			return new RepositoryPage(driver);
+		} else {
+			return repositoryPage;
 		}
 	}
 }
