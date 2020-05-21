@@ -7,7 +7,9 @@ import pages.authorization.AuthorizationPage;
 import pages.repository.RepositoryPage;
 
 public class BaseTest {
-	WebDriver driver;
-	public BasePage basePage = new BasePage(driver);
-	public CommonActions commonActions = new CommonActions();
+
+	protected CommonActions commonActions = CommonActions.getInstance();
+	protected WebDriver driver = commonActions.driver;
+	protected BasePage basePage = new BasePage(driver);
+	protected AuthorizationPage authorizationPage = new AuthorizationPage(driver);
 }

@@ -9,11 +9,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.base.BasePage;
 
 public class AuthorizationPage extends BasePage{
+
 	/**
 	 * чек-лист: https://docs.google.com/spreadsheets/d/19e7u4TNyf2yRV6iJE8o1G2JlythWVH8MZPxyqZtf_Xo
 	 * */
-
-	WebDriver driver;
 
 	public AuthorizationPage(WebDriver driver) {
 		super(driver);
@@ -36,15 +35,15 @@ public class AuthorizationPage extends BasePage{
 	WebElement userAvatar;
 
 	public AuthorizationPage login(String userLogin, String userPassword){
-		explicitWait.until(ExpectedConditions.elementToBeClickable(loginButton)).click();
-		explicitWait.until(ExpectedConditions.visibilityOf(inputFieldName)).sendKeys(userLogin);
-		explicitWait.until(ExpectedConditions.visibilityOf(inputFieldPassword)).sendKeys(userPassword);
-		explicitWait.until(ExpectedConditions.elementToBeClickable(submitLogin)).click();
+		loginButton.click();
+		inputFieldName.sendKeys(userLogin);
+		inputFieldPassword.sendKeys(userPassword);
+		submitLogin.click();
 		return this;
 	}
 
 	public AuthorizationPage checkIsUserAuthorized(){
-		explicitWait.until(ExpectedConditions.visibilityOf(userAvatar));
+		//explicitWait.until(ExpectedConditions.visibilityOf(userAvatar));
 		return this;
 	}
 

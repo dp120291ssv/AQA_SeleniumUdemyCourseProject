@@ -11,8 +11,7 @@ public class AuthorizationPositiveTest extends BaseTest{
 	@Test
 	public void checkAuthorization(){
 		basePage.goToURL(GITHUB_URL);
-		commonActions.getAuthorizationPage()
-			.login(USER_LOGIN, USER_PASSWORD)
+		authorizationPage.login(USER_LOGIN, USER_PASSWORD)
 			.checkIsUserAuthorized();
 	}
 }

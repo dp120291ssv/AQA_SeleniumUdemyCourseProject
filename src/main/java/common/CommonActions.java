@@ -3,45 +3,32 @@ package common;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.authorization.AuthorizationPage;
+import pages.base.BasePage;
 import pages.repository.RepositoryPage;
 import java.util.concurrent.TimeUnit;
 import static constants.Constants.TimeoutVariables.IMPLICIT_WAIT;
 
 public class CommonActions {
 
-	public WebDriver driver;
+    public WebDriver driver;
+    public static CommonActions instance = null;
 
-	AuthorizationPage authorizationPage;
-	RepositoryPage repositoryPage;
+    public CommonActions() {
+        switch (Config.browser) {
 
-	public CommonActions(){
-		initDriver();
-	}
+            case "chrome":
+                System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+                driver = new ChromeDriver();
+                break;
+        }
+        driver.manage().timeouts().implicitlyWait(IMPLICIT_WAIT, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
+    }
 
-	// инициализация driver'a
-	public WebDriver initDriver() {
-		driver = new ChromeDriver();
-		System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver");
-		assert driver != null;
-		driver.manage().timeouts().implicitlyWait(IMPLICIT_WAIT, TimeUnit.SECONDS);
-		driver.manage().window().fullscreen();
-		return driver;
-	}
-
-	//Блок кода, где прокидываем в экземпляр страниц driver
-	public AuthorizationPage getAuthorizationPage() {
-		if (authorizationPage == null) {
-			return new AuthorizationPage(driver);
-		} else {
-			return authorizationPage;
-		}
-	}
-
-	public RepositoryPage getRepositoryPage() {
-		if (repositoryPage == null) {
-			return new RepositoryPage(driver);
-		} else {
-			return repositoryPage;
-		}
-	}
+    // static method to create instance of Singleton class
+    public static CommonActions getInstance() {
+        if (instance == null)
+            instance = new CommonActions();
+        return instance;
+    }
 }
