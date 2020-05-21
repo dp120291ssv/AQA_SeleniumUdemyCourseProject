@@ -2,9 +2,6 @@ package common;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.authorization.AuthorizationPage;
-import pages.base.BasePage;
-import pages.repository.RepositoryPage;
 import java.util.concurrent.TimeUnit;
 import static constants.Constants.TimeoutVariables.IMPLICIT_WAIT;
 
@@ -15,7 +12,6 @@ public class CommonActions {
 
     public CommonActions() {
         switch (Config.browser) {
-
             case "chrome":
                 System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver");
                 driver = new ChromeDriver();

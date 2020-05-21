@@ -19,31 +19,23 @@ public class AuthorizationPage extends BasePage{
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath = "//a[@href='/login']")
-	WebElement loginButton;
-
-	@FindBy(xpath = "//input[@name='login']")
-	WebElement inputFieldName;
-
-	@FindBy(xpath = "//input[@name='password']")
-	WebElement inputFieldPassword;
-
-	@FindBy(xpath = "//input[@value='Sign in']")
-	WebElement submitLogin;
-
-	@FindBy(xpath = "//summary[@data-ga-click='Header, show menu, icon:avatar']")
-	WebElement userAvatar;
+	private final By loginButton = By.xpath("//a[@href='/login']");
+	private final By inputFieldName = By.xpath("//input[@name='login']");
+	private final By inputFieldPassword = By.xpath("//input[@name='password']");
+	private final By submitLogin = By.xpath("//input[@value='Sign in']");
+	private final By userAvatar = By.xpath("//summary[@data-ga-click='Header, show menu, icon:avatar']");
 
 	public AuthorizationPage login(String userLogin, String userPassword){
-		loginButton.click();
-		inputFieldName.sendKeys(userLogin);
-		inputFieldPassword.sendKeys(userPassword);
-		submitLogin.click();
+		driver.findElement(loginButton).click();
+		driver.findElement(inputFieldName).sendKeys(userLogin);
+		driver.findElement(inputFieldPassword).sendKeys(userPassword);
+		driver.findElement(submitLogin).click();
 		return this;
 	}
 
 	public AuthorizationPage checkIsUserAuthorized(){
-		//explicitWait.until(ExpectedConditions.visibilityOf(userAvatar));
+		WebElement userAvatarElement = driver.findElement(userAvatar);
+		waitElementIsVisible(userAvatarElement);
 		return this;
 	}
 
