@@ -27,6 +27,8 @@ public class AuthorizationPage extends BasePage{
 	private final By userName = By.xpath("//a[contains(text(), 'Signed in as ')]/strong"); // сказать про новый селектор
 	private final By logOutButton = By.xpath("//form[@class='logout-form']");
 	private final By mainLoginButton = By.xpath("(//button[contains(text(), 'Sign up for GitHub')])[1]");
+	private final By forgotPassword = By.xpath("//a[contains(text(), 'Forgot password?')]");
+	private final By inputEmail = By.xpath("//input[@name='email']");
 
 	/**
 	 * Авторизация пользователя на сайте: ввод логина и пароля
@@ -51,6 +53,15 @@ public class AuthorizationPage extends BasePage{
 	}
 
 	/**
+	 * Деавторизация пользователя на сайте
+	 * */
+	public AuthorizationPage passwordRecovery(){
+		driver.findElement(loginButton).click();
+		driver.findElement(forgotPassword).submit();
+		return this;
+	}
+
+	/**
 	 * Проверка авторизован ли на сайте необходимый пользователь
 	 * @param userProfileName имя пользователя
 	 * */
@@ -70,13 +81,6 @@ public class AuthorizationPage extends BasePage{
 
 
 
-//		explicitWait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//button[contains(text(), 'Sign up for GitHub')])[1]")));
-//
-//		explicitWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[@href='/login']"))).click();
-//
-//		explicitWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(text(), 'Forgot password?')]")))
-//			.click();
-//
 //		explicitWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@name='email']")))
 //			.sendKeys("dp120291ssv+1@gmail.com");
 //

@@ -32,7 +32,7 @@ public class BaseTest {
 	private void captureScreenshot(String name) {
 		File screenshot = ((TakesScreenshot) driver)
 			.getScreenshotAs(OutputType.FILE);
-		String path = "./target/screenshots/" + screenshot.getName();
+		String path = "./screenshots/" + screenshot.getName();
 		try {
 			FileUtils.copyFile(screenshot, new File(path));
 		} catch (IOException e) {
