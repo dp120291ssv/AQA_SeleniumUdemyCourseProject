@@ -21,7 +21,6 @@ public class BaseTest {
 	protected BasePage basePage = new BasePage(driver);
 	protected AuthorizationPage authorizationPage = new AuthorizationPage(driver);
 
-
 	@Rule
 	public TestRule screenshotRule = new TestWatcher() {
 		@Override
