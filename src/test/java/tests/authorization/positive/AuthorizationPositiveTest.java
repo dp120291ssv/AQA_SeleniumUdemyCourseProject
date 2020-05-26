@@ -2,9 +2,8 @@ package tests.authorization.positive;
 
 import common.Listener;
 import io.qameta.allure.Feature;
-import io.qameta.allure.Step;
 import io.qameta.allure.Story;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import tests.base.BaseTest;
 import static constants.Constants.AuthData.*;
@@ -14,7 +13,6 @@ import static constants.Constants.AuthData.*;
 @ExtendWith(Listener.class)
 public class AuthorizationPositiveTest extends BaseTest {
 
-	@Step
 	@Test
 	public void checkAuthorization(){
 		basePage.goToURL(GITHUB_URL);
@@ -22,7 +20,6 @@ public class AuthorizationPositiveTest extends BaseTest {
 			.checkIsCorrectUserAuthorized(USER_NAME);
 	}
 
-	@Step
 	@Test
 	public void checkLogout(){
 		basePage.goToURL(GITHUB_URL);

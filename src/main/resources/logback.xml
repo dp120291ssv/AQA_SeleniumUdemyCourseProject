@@ -1,0 +1,38 @@
+<configuration debug="false">
+    <contextName>selenium-plugin</contextName>
+
+        <logger name="org.apache" level="WARN" />
+        <logger name="httpclient" level="WARN" />
+        <logger name="io.restassured" level="WARN" />
+        <logger name="io.qameta.allure" level="OFF" />
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <Target>System.out</Target>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>%magenta(%d{HH:mm:ss.SSS}) %yellow(%level) %cyan(%logger{10}) %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="STDERR" class="ch.qos.logback.core.ConsoleAppender">
+        <Target>System.err</Target>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>%magenta(%d{HH:mm:ss.SSS}) %red(%level) %cyan(%logger{10}) %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="ALL">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="STDERR" />
+    </root>
+
+</configuration>

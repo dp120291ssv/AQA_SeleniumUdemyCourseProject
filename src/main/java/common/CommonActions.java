@@ -14,13 +14,14 @@ public class CommonActions {
     public CommonActions() {
         switch (BROWSER_NAME) {
             case "chrome":
-                System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver");
+                System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
                 driver = new ChromeDriver();
                 break;
         }
         driver.manage().timeouts().implicitlyWait(IMPLICIT_WAIT, TimeUnit.SECONDS);
         driver.manage().window().maximize();
     }
+
     // static method to create instance of Singleton class
     public static CommonActions getInstance() {
         if (instance == null)
