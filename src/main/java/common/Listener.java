@@ -28,7 +28,6 @@ public class Listener implements TestWatcher, BeforeAllCallback, AfterEachCallba
 
     @Override
     public void afterEach(ExtensionContext extensionContext) {
-        //driver.navigate().refresh(); TODO вопрос, накуя?))
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         driver.manage().deleteAllCookies();
         executor.executeScript("window.sessionStorage.clear()");
