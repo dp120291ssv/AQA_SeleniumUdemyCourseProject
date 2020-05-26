@@ -3,6 +3,8 @@ package common;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.concurrent.TimeUnit;
+
+import static common.Config.BROWSER_NAME;
 import static constants.Constants.TimeoutVariables.IMPLICIT_WAIT;
 
 public class CommonActions {
@@ -11,7 +13,7 @@ public class CommonActions {
     public static CommonActions instance = null;
 
     public CommonActions() {
-        switch (Config.browser) {
+        switch (BROWSER_NAME) {
             case "chrome":
                 System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver");
                 driver = new ChromeDriver();

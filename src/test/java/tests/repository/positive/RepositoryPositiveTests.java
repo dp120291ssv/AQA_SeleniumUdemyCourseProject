@@ -1,4 +1,4 @@
-package repository.positive;
+package tests.repository.positive;
 
 public class RepositoryPositiveTests {
 }

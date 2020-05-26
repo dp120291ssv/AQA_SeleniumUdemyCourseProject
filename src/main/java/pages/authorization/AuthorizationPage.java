@@ -23,8 +23,16 @@ public class AuthorizationPage extends BasePage{
 	private final By inputFieldName = By.xpath("//input[@name='login']");
 	private final By inputFieldPassword = By.xpath("//input[@name='password']");
 	private final By submitLogin = By.xpath("//input[@value='Sign in']");
-	private final By userAvatar = By.xpath("//summary[@data-ga-click='Header, show menu, icon:avatar']");
+	private final By userAvatar = By.xpath("//details[@class='details-overlay details-reset js-feature-preview-indicator-container']");
+	private final By userName = By.xpath("//a[contains(text(), 'Signed in as ')]/strong"); // сказать про новый селектор
+	private final By logOutButton = By.xpath("//form[@class='logout-form']");
+	private final By mainLoginButton = By.xpath("(//button[contains(text(), 'Sign up for GitHub')])[1]");
 
+	/**
+	 * Авторизация пользователя на сайте: ввод логина и пароля
+	 * @param userLogin логин пользователя
+	 * @param userPassword пароль пользователя
+	 * */
 	public AuthorizationPage login(String userLogin, String userPassword){
 		driver.findElement(loginButton).click();
 		driver.findElement(inputFieldName).sendKeys(userLogin);
@@ -33,39 +41,35 @@ public class AuthorizationPage extends BasePage{
 		return this;
 	}
 
-	public AuthorizationPage checkIsUserAuthorized(){
-		WebElement userAvatarElement = driver.findElement(userAvatar);
-		waitElementIsVisible(userAvatarElement);
+	/**
+	 * Деавторизация пользователя на сайте
+	 * */
+	public AuthorizationPage logOut(){
+		driver.findElement(userAvatar).click();
+		driver.findElement(logOutButton).submit();
 		return this;
 	}
 
-//	public void test(){
-//		driver.get("https://github.com/");
-//
-//		explicitWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[@href='/login']"))).click();
-//
-//		explicitWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@name='login']")))
-//			.sendKeys("dp120291ssv+1@gmail.com");
-//
-//		explicitWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@name='password']")))
-//			.sendKeys("dp120291ssv1");
+	/**
+	 * Проверка авторизован ли на сайте необходимый пользователь
+	 * @param userProfileName имя пользователя
+	 * */
+	public AuthorizationPage checkIsCorrectUserAuthorized(String userProfileName){
+		driver.findElement(userAvatar).click();
+		Assert.assertEquals(userProfileName, waitElementIsVisible(driver.findElement(userName)).getText());
+		return this;
+	}
+
+	/**
+	 * Проверка того, что пользователь находится на главной странице и не авторизован
+	 * */
+	public AuthorizationPage checkIsUserNotAuthorized(){
+		driver.findElement(mainLoginButton).isDisplayed();
+		return this;
+	}
 
 
-//		explicitWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@value='Sign in']")))
-//			.click();
-//
-//		explicitWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//summary[@data-ga-click='Header, show menu, icon:avatar']")))
-//			.click();
 
-
-
-//
-//		Assert.assertEquals("udemyTest1", explicitWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//strong[@class='css-truncate-target']")))
-//			.getText());
-//
-//		explicitWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//form[@class='logout-form']/button")))
-//			.click();
-//
 //		explicitWait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//button[contains(text(), 'Sign up for GitHub')])[1]")));
 //
 //		explicitWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[@href='/login']"))).click();
