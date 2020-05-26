@@ -13,7 +13,6 @@ public class BaseTest {
 	protected BasePage basePage = new BasePage(driver);
 	protected AuthorizationPage authorizationPage = new AuthorizationPage(driver);
 
-
 	@After
 	public void close(){
 		driver.manage().deleteAllCookies();
