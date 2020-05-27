@@ -1,11 +1,8 @@
 package pages.authorization;
 
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.base.BasePage;
 
 public class AuthorizationPage extends BasePage{
@@ -67,7 +64,7 @@ public class AuthorizationPage extends BasePage{
 	 * */
 	public AuthorizationPage checkIsCorrectUserAuthorized(String userProfileName){
 		driver.findElement(userAvatar).click();
-		Assert.assertEquals(userProfileName, waitElementIsVisible(driver.findElement(userName)).getText());
+		Assertions.assertEquals(userProfileName, waitElementIsVisible(driver.findElement(userName)).getText());
 		return this;
 	}
 
