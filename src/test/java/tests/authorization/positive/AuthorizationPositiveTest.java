@@ -36,4 +36,10 @@ public class AuthorizationPositiveTest extends BaseTest {
 			.selectLogOut()
 			.checkIsUserNotAuthorized();
 	}
+
+	@Test
+	public void checkPasswordRecovery(){
+		basePage.goToURL(GITHUB_URL);
+		authorizationPage.selectLoginForm();
+	}
 }

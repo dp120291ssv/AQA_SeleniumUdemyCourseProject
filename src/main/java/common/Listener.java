@@ -2,10 +2,8 @@ package common;
 
 import io.qameta.allure.Attachment;
 import org.apache.commons.io.FileUtils;
-import org.junit.jupiter.api.extension.AfterEachCallback;
-import org.junit.jupiter.api.extension.BeforeAllCallback;
-import org.junit.jupiter.api.extension.ExtensionContext;
-import org.junit.jupiter.api.extension.TestWatcher;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.extension.*;
 import org.openqa.selenium.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,9 +12,10 @@ import java.io.File;
 import java.io.IOException;
 
 import static common.Config.CLEAR_COOKIES;
+import static common.Config.HOLD_BROWSER_OPEN;
 import static org.junit.jupiter.api.extension.ExtensionContext.Namespace.GLOBAL;
 
-public class Listener implements TestWatcher, BeforeAllCallback, AfterEachCallback {
+public class Listener implements TestWatcher, BeforeAllCallback, AfterAllCallback, AfterEachCallback {
 
     CommonActions commonActions = CommonActions.getInstance();
     private WebDriver driver = commonActions.driver;
@@ -26,6 +25,13 @@ public class Listener implements TestWatcher, BeforeAllCallback, AfterEachCallba
     public void beforeAll(ExtensionContext extensionContext) {
         extensionContext.getRoot().getStore(GLOBAL).put(true, this);
     }
+
+	@Override
+	public void afterAll(ExtensionContext extensionContext) throws Exception {
+    	if(!HOLD_BROWSER_OPEN){
+			driver.quit();
+    	}
+	}
 
     @Override
     public void afterEach(ExtensionContext extensionContext) {
