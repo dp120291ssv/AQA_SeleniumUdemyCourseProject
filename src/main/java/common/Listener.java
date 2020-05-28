@@ -25,9 +25,9 @@ public class Listener implements TestWatcher, BeforeAllCallback, AfterAllCallbac
 
 	@Override
 	public void afterAll(ExtensionContext extensionContext) throws Exception {
-    	if(!HOLD_BROWSER_OPEN){
-			driver.quit();
-    	}
+//    	if(!HOLD_BROWSER_OPEN){
+//			driver.quit();
+//    	}
 	}
 
     @Override
