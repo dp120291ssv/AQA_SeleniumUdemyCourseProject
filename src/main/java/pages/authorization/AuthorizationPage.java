@@ -27,6 +27,7 @@ public class AuthorizationPage extends BasePage{
 	private final By forgotPassword = By.xpath("//a[contains(text(), 'Forgot password?')]");
 	private final By inputEmail = By.xpath("//input[@name='email']");
 	private final By submitResetPassword = By.xpath("//input[@name='commit']");
+	private final By textOfRecoveryPasswordSuccess = By.xpath("//p[contains(text(), 'Check your email for a link to reset your password. If it doesn’t appear within a few minutes, check your spam folder.')]");
 
 	/**
 	 * Select button LogIn
@@ -91,15 +92,15 @@ public class AuthorizationPage extends BasePage{
 	 * Select button LogOut
 	 * */
 	public AuthorizationPage selectLogOut(){
-		driver.findElement(logOutButton).submit();
+		driver.findElement(logOutButton).click();
 		return this;
 	}
 
 	/**
 	 * Select button password recovery
 	 * */
-	public AuthorizationPage passwordRecovery(){
-		driver.findElement(forgotPassword).submit();
+	public AuthorizationPage selectPasswordRecovery(){
+		driver.findElement(forgotPassword).click();
 		return this;
 	}
 
@@ -120,13 +121,15 @@ public class AuthorizationPage extends BasePage{
 		return this;
 	}
 
+	/**
+	 * Check that the user is on the main page and not logged in
+	 * */
+	public AuthorizationPage checkIsResetPasswordSuccess(){
+		driver.findElement(textOfRecoveryPasswordSuccess).isDisplayed();
+		return this;
+	}
 
 
-//		explicitWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@name='email']")))
-//			.sendKeys("dp120291ssv+1@gmail.com");
-//
-//		explicitWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@value='Send password reset email']")))
-//			.click();
 //
 //		explicitWait.until(ExpectedConditions
 //			.visibilityOfElementLocated(By.xpath("//p[contains(text(), 'Check your email for a link to reset your password. If it doesn’t appear within a few minutes, check your spam folder.')]")));

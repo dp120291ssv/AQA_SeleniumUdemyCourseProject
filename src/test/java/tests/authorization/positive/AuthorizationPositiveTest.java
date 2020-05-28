@@ -41,7 +41,9 @@ public class AuthorizationPositiveTest extends BaseTest {
 	public void checkPasswordRecovery(){
 		basePage.goToURL(GITHUB_URL);
 		authorizationPage.selectLoginForm()
-			.passwordRecovery()
-			.typeEmail("dp120291ssv+1@gmail.com");
+			.selectPasswordRecovery()
+			.typeEmail(USER_EMAIL)
+			.submitResetPasswordWithEmail()
+			.checkIsResetPasswordSuccess();
 	}
 }
