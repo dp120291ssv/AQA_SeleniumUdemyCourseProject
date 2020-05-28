@@ -1,8 +1,13 @@
 package pages.repository;
 
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import pages.base.BasePage;
+
+import static constants.Constants.AuthData.USER_NAME;
+import static constants.Constants.TestData.REPOSITORY_NAME;
 
 public class RepositoryPage extends BasePage {
 
@@ -15,6 +20,12 @@ public class RepositoryPage extends BasePage {
 	private final By radioButtonPrivat = By.xpath("//input[@id='repository_visibility_private']");
 	private final By checkBoxInitReadMe = By.xpath("//input[@id='repository_auto_init']");
 	private final By buttonCreateRepository = By.xpath("//button[contains(text(), 'Create repository')]");
+	private final By repositoryName = By.xpath("//a[@data-pjax='#js-repo-pjax-container']");
+	private final By tabSettings = By.xpath("(//a[@class='js-selected-navigation-item reponav-item'])[7]");
+	private final By buttonDeleteRepository = By.xpath("//summary[contains(text(), 'Delete this repository')]");
+	private final By inputVerify = By.xpath("(//input[@name='verify'])[3]");
+	private final By buttonConfirmDeleteRepository = By.xpath("//button[contains(text(), 'I understand the consequences, delete this repository')]");
+	private final By messageThatRepositoryIsDeleted = By.xpath("//div[@id='js-flash-container']/div/div");
 
 	/**
 	 * Submit New button to create a repository
@@ -53,34 +64,57 @@ public class RepositoryPage extends BasePage {
 	 * Confirm repository creation
 	 * */
 	public RepositoryPage submitCreateRepository(){
-		driver.findElement(buttonCreateRepository).click();
+		driver.findElement(buttonCreateRepository).submit();
 		return this;
 	}
 
-//		Assert.assertEquals("udemyTest1", explicitWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//a[@data-hovercard-type='user'])[1]")))
-//			.getText());
-//
-//		Assert.assertEquals("new1", explicitWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[@data-pjax='#js-repo-pjax-container']")))
-//			.getText());
-//
-//		explicitWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[contains(text(), 'Private')]")));
-//
+	/**
+	 * Select the settings tab in the repository
+	 * */
+	public RepositoryPage selectTabSettings(){
+		driver.findElement(tabSettings).click();
+		return this;
+	}
 
+	/**
+	 * Select delete repository
+	 * */
+	public RepositoryPage selectDeleteRepository(){
+		driver.findElement(buttonDeleteRepository).click();
+		return this;
+	}
 
-//		explicitWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//a[@class='js-selected-navigation-item reponav-item'])[7]")))
-//			.click();
-//
-//		explicitWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//summary[contains(text(), 'Delete this repository')]")))
-//			.click();
-//
-//		explicitWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//input[@name='verify'])[3]")))
-//			.sendKeys("udemyTest1/new1");
-//
-//		explicitWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//button[contains(text(), 'I understand the consequences, delete this repository')]")))
-//			.click();
-//
-//		Assert.assertEquals("Your repository \"udemyTest1/new1\" was successfully deleted.", explicitWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@id='js-flash-container']/div/div")))
-//			.getAttribute("outerText"));
+	/**
+	 * Enter username and repository name to confirm deletion
+	 * */
+	public RepositoryPage enterUsernameAndRepositoryNameToConfirmDeletion(String userAndRepositoryName){
+		driver.findElement(inputVerify).sendKeys(userAndRepositoryName);
+		return this;
+	}
 
+	/**
+	 * Confirm delete repository
+	 * */
+	public RepositoryPage confirmDeleteRepository(){
+		driver.findElement(buttonConfirmDeleteRepository).click();
+		return this;
+	}
 
+	/**
+	 * Confirm repository creation
+	 * */
+	public RepositoryPage checkIsCorrectRepositoryName(String nameOfRepository){
+		WebElement actualRepositoryName = driver.findElement(repositoryName);
+		Assertions.assertEquals(nameOfRepository, actualRepositoryName.getText());
+		return this;
+	}
+
+	/**
+	 * Chech the message that the repository is deleted
+	 * */
+	public RepositoryPage сheckTheMessageThatTheRepositoryIsDeleted(){
+		Assertions.assertEquals("Your repository \""+ USER_NAME + "/" + REPOSITORY_NAME + "\" was successfully deleted.",
+			driver.findElement(messageThatRepositoryIsDeleted).getAttribute("outerText"));
+		return this;
+	}
 }

@@ -14,7 +14,7 @@ import static constants.Constants.TestData.REPOSITORY_NAME;
 public class RepositoryPositiveTests extends BaseTest {
 
 	@Test
-	public void checkTheCreationOfRepository() {
+	public void checkThCreatingAndDeletingARepository() {
 		basePage.goToURL(GITHUB_URL);
 		authorizationPage.selectLoginForm()
 			.enterLogin(USER_LOGIN)
@@ -24,17 +24,12 @@ public class RepositoryPositiveTests extends BaseTest {
 			.enterTheRepositoryName(REPOSITORY_NAME)
 			.selectRadioButtonPrivate()
 			.selectCheckboxInitReadMe()
-			.submitCreateRepository();
-	}
-
-	@Test
-	public void checkDeleteTheRepository() {
-		basePage.goToURL(GITHUB_URL);
-		authorizationPage.selectLoginForm()
-			.enterLogin(USER_LOGIN)
-			.enterPassword(USER_PASSWORD)
-			.submitAuthorization()
-			.selectUserProfilePicture()
-			.checkIsCorrectUserAuthorized(USER_NAME);
+			.submitCreateRepository()
+			.checkIsCorrectRepositoryName(REPOSITORY_NAME)
+			.selectTabSettings()
+			.selectDeleteRepository()
+			.enterUsernameAndRepositoryNameToConfirmDeletion(USER_NAME + "/" + REPOSITORY_NAME)
+			.confirmDeleteRepository()
+			.сheckTheMessageThatTheRepositoryIsDeleted();;
 	}
 }
