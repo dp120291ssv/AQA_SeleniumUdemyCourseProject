@@ -22,7 +22,9 @@ public class CommonActions {
         driver.manage().window().maximize();
     }
 
-    // static method to create instance of Singleton class
+	/**
+	 * static method to create instance of Singleton class
+	 */
     public static CommonActions getInstance() {
         if (instance == null)
             instance = new CommonActions();

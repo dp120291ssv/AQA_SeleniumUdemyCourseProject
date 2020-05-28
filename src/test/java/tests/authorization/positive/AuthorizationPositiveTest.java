@@ -8,8 +8,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import tests.base.BaseTest;
 import static constants.Constants.AuthData.*;
 
-@Feature("Проверка логики авторизации")
-@Story("Позитивные сценарии")
+@Feature("Check authorization logic")
+@Story("A positive scenario")
 @ExtendWith(Listener.class)
 public class AuthorizationPositiveTest extends BaseTest {
 

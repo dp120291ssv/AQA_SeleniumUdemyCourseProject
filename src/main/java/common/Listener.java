@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import java.io.File;
 import java.io.IOException;
 
+import static common.Config.CLEAR_COOKIES;
 import static org.junit.jupiter.api.extension.ExtensionContext.Namespace.GLOBAL;
 
 public class Listener implements TestWatcher, BeforeAllCallback, AfterEachCallback {
@@ -28,9 +29,11 @@ public class Listener implements TestWatcher, BeforeAllCallback, AfterEachCallba
 
     @Override
     public void afterEach(ExtensionContext extensionContext) {
-        JavascriptExecutor executor = (JavascriptExecutor) driver;
-        driver.manage().deleteAllCookies();
-        executor.executeScript("window.sessionStorage.clear()");
+    	if(CLEAR_COOKIES) {
+			JavascriptExecutor executor = (JavascriptExecutor) driver;
+			driver.manage().deleteAllCookies();
+			executor.executeScript("window.sessionStorage.clear()");
+		}
     }
 
     @Override
