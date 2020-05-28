@@ -13,11 +13,19 @@ public class CommonActions {
 
     public CommonActions() {
         switch (BROWSER_NAME) {
-            case "chrome":
+            case "chrome_mac":
                 System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver");
                 driver = new ChromeDriver();
                 break;
-        }
+			case "chrome_windows":
+				System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+				driver = new ChromeDriver();
+				break;
+			case "mozzila_mac":
+				System.setProperty("webdriver.chrome.driver", "src/main/resources/geckodriver");
+				driver = new ChromeDriver();
+				break;
+		}
         driver.manage().timeouts().implicitlyWait(IMPLICIT_WAIT, TimeUnit.SECONDS);
         driver.manage().window().maximize();
     }

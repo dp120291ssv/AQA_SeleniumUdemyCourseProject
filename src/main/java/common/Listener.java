@@ -2,15 +2,12 @@ package common;
 
 import io.qameta.allure.Attachment;
 import org.apache.commons.io.FileUtils;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.extension.*;
 import org.openqa.selenium.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.io.File;
 import java.io.IOException;
-
 import static common.Config.CLEAR_COOKIES;
 import static common.Config.HOLD_BROWSER_OPEN;
 import static org.junit.jupiter.api.extension.ExtensionContext.Namespace.GLOBAL;
