@@ -14,4 +14,8 @@ public class Constants {
 		public static final String GITHUB_URL = "https://github.com";
 		public static final String USER_NAME = "udemyTest1";
 	}
+
+	public class TestData {
+		public static final String REPOSITORY_NAME = "test1";
+	}
 }

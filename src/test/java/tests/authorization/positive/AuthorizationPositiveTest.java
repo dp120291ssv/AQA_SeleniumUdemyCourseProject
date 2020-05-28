@@ -19,8 +19,8 @@ public class AuthorizationPositiveTest extends BaseTest {
 	public void checkAuthorization(){
 		basePage.goToURL(GITHUB_URL);
 		authorizationPage.selectLoginForm()
-			.typeLogin(USER_LOGIN)
-			.typePassword(USER_PASSWORD)
+			.enterLogin(USER_LOGIN)
+			.enterPassword(USER_PASSWORD)
 			.submitAuthorization()
 			.selectUserProfilePicture()
 			.checkIsCorrectUserAuthorized(USER_NAME);
@@ -30,8 +30,8 @@ public class AuthorizationPositiveTest extends BaseTest {
 	public void checkLogout(){
 		basePage.goToURL(GITHUB_URL);
 		authorizationPage.selectLoginForm()
-			.typeLogin(USER_LOGIN)
-			.typePassword(USER_PASSWORD)
+			.enterLogin(USER_LOGIN)
+			.enterPassword(USER_PASSWORD)
 			.submitAuthorization()
 			.selectUserProfilePicture()
 			.checkIsCorrectUserAuthorized(USER_NAME)
@@ -44,7 +44,7 @@ public class AuthorizationPositiveTest extends BaseTest {
 		basePage.goToURL(GITHUB_URL);
 		authorizationPage.selectLoginForm()
 			.selectPasswordRecovery()
-			.typeEmail(USER_EMAIL)
+			.enterEmail(USER_EMAIL)
 			.submitResetPasswordWithEmail()
 			.checkIsResetPasswordSuccess();
 	}

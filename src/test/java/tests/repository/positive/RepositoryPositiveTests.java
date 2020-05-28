@@ -6,6 +6,7 @@ import io.qameta.allure.Story;
 import org.junit.jupiter.api.Test;
 import tests.base.BaseTest;
 import static constants.Constants.AuthData.*;
+import static constants.Constants.TestData.REPOSITORY_NAME;
 
 @Link(name = "check-list", url = "https://docs.google.com/spreadsheets/d/19e7u4TNyf2yRV6iJE8o1G2JlythWVH8MZPxyqZtf_Xo")
 @Feature("Tests for the logic to work with the repository")
@@ -16,19 +17,22 @@ public class RepositoryPositiveTests extends BaseTest {
 	public void checkTheCreationOfRepository() {
 		basePage.goToURL(GITHUB_URL);
 		authorizationPage.selectLoginForm()
-			.typeLogin(USER_LOGIN)
-			.typePassword(USER_PASSWORD)
-			.submitAuthorization()
-			.selectUserProfilePicture()
-			.checkIsCorrectUserAuthorized(USER_NAME);
+			.enterLogin(USER_LOGIN)
+			.enterPassword(USER_PASSWORD)
+			.submitAuthorization();
+		repositoryPage.submitCreateNewRepository()
+			.enterTheRepositoryName(REPOSITORY_NAME)
+			.selectRadioButtonPrivate()
+			.selectCheckboxInitReadMe()
+			.submitCreateRepository();
 	}
 
 	@Test
 	public void checkDeleteTheRepository() {
 		basePage.goToURL(GITHUB_URL);
 		authorizationPage.selectLoginForm()
-			.typeLogin(USER_LOGIN)
-			.typePassword(USER_PASSWORD)
+			.enterLogin(USER_LOGIN)
+			.enterPassword(USER_PASSWORD)
 			.submitAuthorization()
 			.selectUserProfilePicture()
 			.checkIsCorrectUserAuthorized(USER_NAME);

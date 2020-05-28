@@ -35,7 +35,7 @@ public class AuthorizationPage extends BasePage{
 	 * Select button LogIn and then enter the login name
 	 * @param userLogin - user login
 	 * */
-	public AuthorizationPage typeLogin(String userLogin){
+	public AuthorizationPage enterLogin(String userLogin){
 		driver.findElement(inputFieldName).sendKeys(userLogin);
 		return this;
 	}
@@ -44,7 +44,7 @@ public class AuthorizationPage extends BasePage{
 	 * Select button LogIn and then enter the password login
 	 * @param userPassword - password login
 	 * */
-	public AuthorizationPage typePassword(String userPassword){
+	public AuthorizationPage enterPassword(String userPassword){
 		driver.findElement(inputFieldPassword).sendKeys(userPassword);
 		return this;
 	}
@@ -53,7 +53,7 @@ public class AuthorizationPage extends BasePage{
 	 * Enter the e-mail
 	 * @param userEmail - user email
 	 * */
-	public AuthorizationPage typeEmail(String userEmail){
+	public AuthorizationPage enterEmail(String userEmail){
 		driver.findElement(inputEmail).sendKeys(userEmail);
 		return this;
 	}
