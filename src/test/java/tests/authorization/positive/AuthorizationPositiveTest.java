@@ -16,16 +16,24 @@ public class AuthorizationPositiveTest extends BaseTest {
 	@Test
 	public void checkAuthorization(){
 		basePage.goToURL(GITHUB_URL);
-		authorizationPage.login(USER_LOGIN, USER_PASSWORD)
+		authorizationPage.selectLoginForm()
+			.typeLogin(USER_LOGIN)
+			.typePassword(USER_PASSWORD)
+			.submitAuthorization()
+			.selectUserProfilePicture()
 			.checkIsCorrectUserAuthorized(USER_NAME);
 	}
 
 	@Test
 	public void checkLogout(){
 		basePage.goToURL(GITHUB_URL);
-		authorizationPage.login(USER_LOGIN, USER_PASSWORD)
+		authorizationPage.selectLoginForm()
+			.typeLogin(USER_LOGIN)
+			.typePassword(USER_PASSWORD)
+			.submitAuthorization()
+			.selectUserProfilePicture()
 			.checkIsCorrectUserAuthorized(USER_NAME)
-			.logOut()
+			.selectLogOut()
 			.checkIsUserNotAuthorized();
 	}
 }

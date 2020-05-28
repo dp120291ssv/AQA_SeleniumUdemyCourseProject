@@ -28,42 +28,65 @@ public class AuthorizationPage extends BasePage{
 	private final By inputEmail = By.xpath("//input[@name='email']");
 
 	/**
-	 * Авторизация пользователя на сайте: ввод логина и пароля
-	 * @param userLogin логин пользователя
-	 * @param userPassword пароль пользователя
+	 * Select button LogIn
 	 * */
-	public AuthorizationPage login(String userLogin, String userPassword){
+	public AuthorizationPage selectLoginForm(){
 		driver.findElement(loginButton).click();
+		return this;
+	}
+
+	/**
+	 * Select button LogIn and then enter the login name
+	 * @param userLogin - user login
+	 * */
+	public AuthorizationPage typeLogin(String userLogin){
 		driver.findElement(inputFieldName).sendKeys(userLogin);
+		return this;
+	}
+
+	/**
+	 * Select button LogIn and then enter the password login
+	 * @param userPassword - password login
+	 * */
+	public AuthorizationPage typePassword(String userPassword){
 		driver.findElement(inputFieldPassword).sendKeys(userPassword);
+		return this;
+	}
+
+	public AuthorizationPage submitAuthorization(){
 		driver.findElement(submitLogin).click();
 		return this;
 	}
 
 	/**
-	 * Деавторизация пользователя на сайте
+	 * Select user picture in user profile
 	 * */
-	public AuthorizationPage logOut(){
+	public AuthorizationPage selectUserProfilePicture(){
 		driver.findElement(userAvatar).click();
+		return this;
+	}
+
+	/**
+	 * Select button LogOut
+	 * */
+	public AuthorizationPage selectLogOut(){
 		driver.findElement(logOutButton).submit();
 		return this;
 	}
 
 	/**
-	 * Деавторизация пользователя на сайте
+	 * Select button password recovery
 	 * */
 	public AuthorizationPage passwordRecovery(){
-		driver.findElement(loginButton).click();
 		driver.findElement(forgotPassword).submit();
 		return this;
 	}
 
 	/**
-	 * Проверка авторизован ли на сайте необходимый пользователь
-	 * @param userProfileName имя пользователя
+	 * Check authorized if the website required the user
+	 * @param userProfileName user name
 	 * */
 	public AuthorizationPage checkIsCorrectUserAuthorized(String userProfileName){
-		driver.findElement(userAvatar).click();
 		Assertions.assertEquals(userProfileName, waitElementIsVisible(driver.findElement(userName)).getText());
 		return this;
 	}
