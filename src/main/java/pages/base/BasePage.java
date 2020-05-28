@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import static constants.Constants.TimeoutVariables.EXPLICIT_WAIT;
 
 public class BasePage {
 
@@ -18,7 +19,7 @@ public class BasePage {
     }
 
     public WebElement waitElementIsVisible(WebElement element){
-        new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOf(element));
+        new WebDriverWait(driver, EXPLICIT_WAIT).until(ExpectedConditions.visibilityOf(element));
         return element;
     }
 }
