@@ -34,7 +34,7 @@ public class AuthorizationPositiveTest extends BaseTest {
 			.enterPassword(USER_PASSWORD)
 			.submitAuthorization()
 			.selectUserProfilePicture()
-			.checkIsCorrectUserAuthorized(USER_NAME+1)
+			.checkIsCorrectUserAuthorized(USER_NAME)
 			.selectLogOut()
 			.checkIsUserNotAuthorized();
 	}

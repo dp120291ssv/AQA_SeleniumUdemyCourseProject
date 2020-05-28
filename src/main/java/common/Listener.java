@@ -12,7 +12,7 @@ import static common.Config.CLEAR_COOKIES;
 import static common.Config.HOLD_BROWSER_OPEN;
 import static org.junit.jupiter.api.extension.ExtensionContext.Namespace.GLOBAL;
 
-public class Listener implements TestWatcher, BeforeAllCallback, AfterAllCallback, AfterEachCallback {
+public class Listener implements TestWatcher, BeforeAllCallback, AfterEachCallback, ExtensionContext.Store.CloseableResource {
 
     CommonActions commonActions = CommonActions.getInstance();
     private WebDriver driver = commonActions.driver;
@@ -23,11 +23,12 @@ public class Listener implements TestWatcher, BeforeAllCallback, AfterAllCallbac
         extensionContext.getRoot().getStore(GLOBAL).put(true, this);
     }
 
+
 	@Override
-	public void afterAll(ExtensionContext extensionContext) throws Exception {
-//    	if(!HOLD_BROWSER_OPEN){
-//			driver.quit();
-//    	}
+	public void close(){
+    	if(!HOLD_BROWSER_OPEN){
+			driver.quit();
+    	}
 	}
 
     @Override
