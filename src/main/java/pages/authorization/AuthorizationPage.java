@@ -8,7 +8,7 @@ import pages.base.BasePage;
 public class AuthorizationPage extends BasePage{
 
 	/**
-	 * чек-лист: https://docs.google.com/spreadsheets/d/19e7u4TNyf2yRV6iJE8o1G2JlythWVH8MZPxyqZtf_Xo
+	 * check-list: https://docs.google.com/spreadsheets/d/19e7u4TNyf2yRV6iJE8o1G2JlythWVH8MZPxyqZtf_Xo
 	 * */
 
 	public AuthorizationPage(WebDriver driver) {
@@ -92,7 +92,7 @@ public class AuthorizationPage extends BasePage{
 	}
 
 	/**
-	 * Проверка того, что пользователь находится на главной странице и не авторизован
+	 * Check that the user is on the main page and not logged in
 	 * */
 	public AuthorizationPage checkIsUserNotAuthorized(){
 		driver.findElement(mainLoginButton).isDisplayed();

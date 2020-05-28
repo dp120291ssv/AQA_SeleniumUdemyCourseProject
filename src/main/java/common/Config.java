@@ -1,7 +1,6 @@
 package common;
 
 public class Config {
-
 	/**Specify the browser to test*/
 	public static String BROWSER_NAME = "chrome";
 	/**Whether to clean the browser's cookies after each iteration*/
