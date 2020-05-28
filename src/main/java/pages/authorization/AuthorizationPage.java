@@ -26,6 +26,7 @@ public class AuthorizationPage extends BasePage{
 	private final By mainLoginButton = By.xpath("(//button[contains(text(), 'Sign up for GitHub')])[1]");
 	private final By forgotPassword = By.xpath("//a[contains(text(), 'Forgot password?')]");
 	private final By inputEmail = By.xpath("//input[@name='email']");
+	private final By submitResetPassword = By.xpath("//input[@name='commit']");
 
 	/**
 	 * Select button LogIn
@@ -53,8 +54,28 @@ public class AuthorizationPage extends BasePage{
 		return this;
 	}
 
+	/**
+	 * Enter the e-mail
+	 * @param userEmail - user email
+	 * */
+	public AuthorizationPage typeEmail(String userEmail){
+		driver.findElement(inputEmail).sendKeys(userEmail);
+		return this;
+	}
+
+	/**
+	 * Confirm authorization
+	 * */
 	public AuthorizationPage submitAuthorization(){
 		driver.findElement(submitLogin).click();
+		return this;
+	}
+
+	/**
+	 * Confirm recovery password
+	 * */
+	public AuthorizationPage submitResetPasswordWithEmail(){
+		driver.findElement(submitResetPassword).click();
 		return this;
 	}
 

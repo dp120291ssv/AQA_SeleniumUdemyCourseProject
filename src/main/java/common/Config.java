@@ -6,7 +6,7 @@ public class Config {
 	 **/
 	public static String BROWSER_NAME = "chrome_mac";
 	/**Whether to clean the browser's cookies after each iteration*/
-	public static boolean CLEAR_COOKIES = true;
+	public static boolean CLEAR_COOKIES = false;
 	/**Clean the directory with the screen before starting the build*/
 	public static boolean CLEAR_REPORTS_DIR = true;
 	/**Whether to keep the browser open after the tests*/

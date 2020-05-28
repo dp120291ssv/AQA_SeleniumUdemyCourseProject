@@ -40,6 +40,8 @@ public class AuthorizationPositiveTest extends BaseTest {
 	@Test
 	public void checkPasswordRecovery(){
 		basePage.goToURL(GITHUB_URL);
-		authorizationPage.selectLoginForm();
+		authorizationPage.selectLoginForm()
+			.passwordRecovery()
+			.typeEmail("dp120291ssv+1@gmail.com");
 	}
 }
