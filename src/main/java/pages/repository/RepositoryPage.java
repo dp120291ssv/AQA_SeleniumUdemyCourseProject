@@ -112,9 +112,8 @@ public class RepositoryPage extends BasePage {
 	/**
 	 * Chech the message that the repository is deleted
 	 * */
-	public RepositoryPage сheckTheMessageThatTheRepositoryIsDeleted(){
-		Assertions.assertEquals("Your repository \""+ USER_NAME + "/" + REPOSITORY_NAME + "\" was successfully deleted.",
-			driver.findElement(messageThatRepositoryIsDeleted).getAttribute("outerText"));
+	public RepositoryPage сheckTheMessageThatTheRepositoryIsDeleted(String expectedMessage){
+		Assertions.assertEquals(expectedMessage, driver.findElement(messageThatRepositoryIsDeleted).getAttribute("outerText"));
 		return this;
 	}
 }

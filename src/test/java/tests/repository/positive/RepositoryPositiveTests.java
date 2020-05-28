@@ -30,6 +30,7 @@ public class RepositoryPositiveTests extends BaseTest {
 			.selectDeleteRepository()
 			.enterUsernameAndRepositoryNameToConfirmDeletion(USER_NAME + "/" + REPOSITORY_NAME)
 			.confirmDeleteRepository()
-			.сheckTheMessageThatTheRepositoryIsDeleted();;
+			.сheckTheMessageThatTheRepositoryIsDeleted("Your repository \""+ USER_NAME + "/" + REPOSITORY_NAME +
+				"\" was successfully deleted.");;
 	}
 }
