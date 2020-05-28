@@ -6,9 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pages.base.BasePage;
 
-import static constants.Constants.AuthData.USER_NAME;
-import static constants.Constants.TestData.REPOSITORY_NAME;
-
 public class RepositoryPage extends BasePage {
 
 	public RepositoryPage(WebDriver driver) {
