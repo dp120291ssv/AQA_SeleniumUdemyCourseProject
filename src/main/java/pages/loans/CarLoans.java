@@ -17,13 +17,13 @@ public class CarLoans extends BasePage{
 	private final By phoneCodeButton = By.xpath("//button[@data-qa-node='phone-code']");
 	private final By searchPhoneCodeField = By.xpath("//input[@placeholder = 'Search' and .//ancestor::div[@data-qa-node]]");
 	private final By phoneNumberField = By.xpath("//input[@data-qa-node = 'phone-number' and @placeholder = '000000000']");
-	private final By applyOrderButton = By.xpath("//button[@type = 'button' and contains(text(), 'Подати заявку')]");
+	private final By applyOrderButton = By.xpath("//button[@type = 'button' and contains(text(), 'Submit an application')]");
 	private final By applyOrderButtonInAgreements = By.xpath("//button[contains(text(), 'Оформити') and .//ancestor::a[@href='/auto-credit/order']]");
 	private final By getALoanSection = By.xpath("//div[contains(text(), 'Оформити') and .//parent::a[@href='/auto-credit/order']]");
 	private final By selectedUsedAutoTab = By.xpath("//div[@data-qa-node='type' and contains(text(), 'With mileage')]");
 	private final By newAutoTypeTab = By.xpath("//label[@data-id='new' and contains(text(), 'Нове')]");
 	private final By sliderButtonSum = By.xpath("(//input[@value]//following-sibling::div//button)[2]");
-	private final By confirmForm = By.xpath("//div[contains(text(), 'Одноразовий пароль був відправлений Вам на телефон')]");
+	private final By confirmForm = By.xpath("//div[contains(text(), 'One-time password has been forwarded to your phone')]");
 	private final By buttonCountryRussia = By.xpath("//div[@name='Russia']");
 
 //	/**
@@ -51,7 +51,7 @@ public class CarLoans extends BasePage{
 //	}
 
 	/**
-	 * Проверка отображения конфирм формы
+	 * Test display of the form confirmation of transaction
 	 */
 	public CarLoans checkIsDisplayedConfirm(){
 		waitElementIsVisible(driver.findElement(confirmForm));
@@ -87,8 +87,8 @@ public class CarLoans extends BasePage{
 	}
 
 	/**
-	 * Заполнение номера мобильной связи для подачи заявки
-	 * @param phoneNumber номер для подачи заявки
+	 * Filling in the mobile number to apply
+	 * @param phoneNumber mobile number to apply
 	 */
 	public CarLoans typeJustPhoneNumber(String phoneNumber) {
 		driver.findElement(phoneNumberField).clear();
@@ -97,8 +97,8 @@ public class CarLoans extends BasePage{
 	}
 
 	/**
-	 * Писк кода страны мобильной связи
-	 * @param phoneNumber номер для подачи заявки
+	 * Search country code for mobile communications
+	 * @param phoneNumber mobile number to apply
 	 */
 	public CarLoans searchPhoneCountryCodeField(String phoneNumber) {
 		driver.findElement(searchPhoneCodeField).clear();
@@ -107,7 +107,7 @@ public class CarLoans extends BasePage{
 	}
 
 	/**
-	 * Выбор выпадающего списка кодов стран мобильной связи
+	 * Selection of drop down list of codes of countries, mobile communications
 	 */
 	public CarLoans selectPhoneCodeButton() {
 		driver.findElement(phoneCodeButton).click();
@@ -123,7 +123,7 @@ public class CarLoans extends BasePage{
 //	}
 
 	/**
-	 * Подтверждение подачи заявки на кредит
+	 * Confirmation of application for credit
 	 */
 	public CarLoans applyOrderButton() {
 		driver.findElement(applyOrderButton).click();
@@ -147,7 +147,7 @@ public class CarLoans extends BasePage{
 //	}
 
 	/**
-	 * Выбор кода страны из выпадающего списка
+	 * Select the country code from the drop down list
 	 */
 	public CarLoans selectCountryCountryRussiaFromList() {
 		driver.findElement(buttonCountryRussia).click();

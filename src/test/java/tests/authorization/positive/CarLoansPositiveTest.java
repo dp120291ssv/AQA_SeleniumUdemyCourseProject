@@ -23,13 +23,13 @@ public class CarLoansPositiveTest extends BaseTest {
 		carLoans
 			.checkSelectedTabWithMileageAuto()
 			.typeAmountFieldCarCost("1500000")
-			.typeAmountFieldPrepaidExpense("900000");
-//			.selectPhoneCodeButton()
-//			.searchPhoneCountryCodeField("Russ")
-//			.selectCountryCountryRussiaFromList()
-//			.typeJustPhoneNumber("000000000")
-//			.applyOrderButton()
-//			.checkIsDisplayedConfirm();
+			.typeAmountFieldPrepaidExpense("900000")
+			.selectPhoneCodeButton()
+			.searchPhoneCountryCodeField("Russ")
+			.selectCountryCountryRussiaFromList()
+			.typeJustPhoneNumber("000000000")
+			.applyOrderButton()
+			.checkIsDisplayedConfirm();
 	}
 
 //	@Test
