@@ -15,10 +15,16 @@ public class BasePage {
         this.driver = driver;
     }
 
+	/**
+	 * A method for navigating to a specific URL
+	 */
     public void goToURL(String URL) {
         driver.get(URL);
     }
 
+	/**
+	 * Waiting for visibility of element in DOM model
+	 */
     public WebElement waitElementIsVisible(WebElement element){
         new WebDriverWait(driver, EXPLICIT_WAIT).until(ExpectedConditions.visibilityOf(element));
         return element;
