@@ -26,7 +26,8 @@ public class MobilePhoneReplenishment extends BasePage {
 	private final By commissionCurrencyInTheCard = By.xpath("//small[@data-qa-node='commission-currency']");
 
 	/**
-	 *
+	 * Enter a phone number excluding country code
+	 * @param phone phone number
 	 */
 	public MobilePhoneReplenishment enterPhoneNumber(String phone){
 		WebElement phoneNumber = driver.findElement(inputPhoneNumber);
@@ -35,7 +36,8 @@ public class MobilePhoneReplenishment extends BasePage {
 	}
 
 	/**
-	 *
+	 * Enter the amount of replenishment of the mobile phone number
+	 * @param sum amount of replenishment
 	 */
 	public MobilePhoneReplenishment enterAmount(String sum){
 		WebElement amount = driver.findElement(inputAmount);
@@ -44,7 +46,8 @@ public class MobilePhoneReplenishment extends BasePage {
 	}
 
 	/**
-	 *
+	 * Enter the card number for payment
+	 * @param number card number
 	 */
 	public MobilePhoneReplenishment enterCardNumber(String number){
 		WebElement cardNumber = driver.findElement(inputCardNumber);
@@ -53,7 +56,8 @@ public class MobilePhoneReplenishment extends BasePage {
 	}
 
 	/**
-	 *
+	 * Enter the card expiry date for payment
+	 * @param expDate expiry date
 	 */
 	public MobilePhoneReplenishment enterExpDate(String expDate){
 		WebElement expiredDate = driver.findElement(inputCardExpDate);
@@ -62,7 +66,8 @@ public class MobilePhoneReplenishment extends BasePage {
 	}
 
 	/**
-	 *
+	 * Enter the cvv code from the card for payment
+	 * @param cvv the cvv code
 	 */
 	public MobilePhoneReplenishment enterCvvCode(String cvv){
 		WebElement cvvCode = driver.findElement(inputCardCvv);
@@ -71,7 +76,7 @@ public class MobilePhoneReplenishment extends BasePage {
 	}
 
 	/**
-	 *
+	 * Acceptance of payment
 	 */
 	public MobilePhoneReplenishment submitMobileReplenishment(){
 		driver.findElement(buttonSubmitPayment).click();
@@ -79,7 +84,9 @@ public class MobilePhoneReplenishment extends BasePage {
 	}
 
 	/**
-	 *
+	 * Check the card number with which the payment and the recipient
+	 * @param cardFrom the card number for payment
+	 * @param recipient mobile operator
 	 */
 	public MobilePhoneReplenishment checkPaymentCardAndRecipient(String cardFrom, String recipient){
 
@@ -87,7 +94,9 @@ public class MobilePhoneReplenishment extends BasePage {
 	}
 
 	/**
-	 *
+	 * Check the amount and Commission amount
+	 * @param amount the amount will be credited to the mobile account
+	 * @param commission the commission in addition to mobile account
 	 */
 	public MobilePhoneReplenishment checkPaymentAmountAndCommission(String amount, String commission){
 		Assertions.assertEquals(driver.findElement(amountInTheCart).getText(), amount);
