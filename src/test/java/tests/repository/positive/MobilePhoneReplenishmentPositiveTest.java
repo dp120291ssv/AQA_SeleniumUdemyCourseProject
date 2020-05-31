@@ -8,6 +8,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import tests.base.BaseTest;
+
+import static constants.Constants.CURRENCY.CURRENCY_UAH;
 import static constants.Constants.DOMAINS_URL.PRIVAT24_MOBILE_REPLENISHMENT_URL;
 import static constants.Constants.TestDataForMobileReplenishment.*;
 
@@ -23,13 +25,13 @@ public class MobilePhoneReplenishmentPositiveTest extends BaseTest {
 		basePage.goToURL(PRIVAT24_MOBILE_REPLENISHMENT_URL);
 		mobilePhoneReplenishment
 			.enterPhoneNumber(PHONE_NUMBER_UKRAINE)
-			.enterAmount("12")
+			.enterAmount("1")
 			.enterCardNumber(TEST_CARD_1)
 			.enterExpDate(EXP_DATE_CARD_1)
 			.enterCvvCode(CVV_CODE_CARD_1)
 			.submitMobileReplenishment()
-			.checkPaymentAmountAndCommission("12", "1")
-			.checkPaymentCurrency("UAH", "UAH")
+			.checkPaymentAmountAndCommission("1", "1")
+			.checkPaymentCurrency(CURRENCY_UAH, CURRENCY_UAH)
 			.checkPaymentCardAndRecipient(TEST_CARD_1_THE_LAST_FOUR_DIGITS, "Kyivstar Ukraine");
 	}
 }

@@ -19,4 +19,10 @@ public class Constants {
 		public static final String EXP_DATE_CARD_1 = "0622";
 		public static final String CVV_CODE_CARD_1 = "327";
 	}
+
+	public class CURRENCY{
+		public static final String CURRENCY_UAH = "UAH";
+		public static final String CURRENCY_USD = "USD";
+		public static final String CURRENCY_EUR = "USD";
+	}
 }

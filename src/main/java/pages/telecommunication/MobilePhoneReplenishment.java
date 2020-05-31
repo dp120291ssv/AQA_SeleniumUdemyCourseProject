@@ -111,7 +111,7 @@ public class MobilePhoneReplenishment extends BasePage {
 	 * @param commissionAmount currency of fee
 	 */
 	public MobilePhoneReplenishment checkPaymentCurrency(String currencyAmount, String commissionAmount){
-		Assertions.assertEquals(driver.findElement(amountCurrencyInTheCard).getText().split(" ")[1], currencyAmount);
+		Assertions.assertEquals(waitElementIsVisible(driver.findElement(amountCurrencyInTheCard)).getText().split(" ")[1], currencyAmount);
 		Assertions.assertEquals(driver.findElement(commissionCurrencyInTheCard).getText().split(" ")[1], commissionAmount);
 		return this;
 	}
