@@ -59,16 +59,12 @@ public class CarLoans extends BasePage{
 	}
 
 	/**
-	 * Ввод суммы стоимости авто и сохранение в переменную суммы аванса
-	 * @param amount сумма полной стоимости авто
+	 * Enter the amount of the car value
+	 * @param amount the full cost of a car
 	 */
 	public CarLoans typeAmountFieldCarCost(String amount) {
-
 		WebElement amountField = driver.findElement(amountFieldCarCost);
 		clearAndType(amountField, amount);
-
-
-//		driver.findElement(amountFieldCarCost).sendKeys(amount);
 		return this;
 	}
 
@@ -81,12 +77,12 @@ public class CarLoans extends BasePage{
 //	}
 
 	/**
-	 * Ввод суммы аванса за кредит
-	 * @param amount сумма аванса платежа
+	 * Enter the advance amount for the loan
+	 * @param amount the amount of the advance payment
 	 */
 	public CarLoans typeAmountFieldPrepaidExpense(String amount) {
-		driver.findElement(amountFieldPrepaidExpense).clear();
-		driver.findElement(amountFieldPrepaidExpense).sendKeys(amount);
+		WebElement amountField = driver.findElement(amountFieldPrepaidExpense);
+		clearAndType(amountField, amount);
 		return this;
 	}
 
@@ -135,9 +131,9 @@ public class CarLoans extends BasePage{
 	}
 
 	/**
-	 * Проверка, что выбран таб "Авто с пробегом"
+	 * Check that the selected tab is "With mileage"
 	 */
-	public CarLoans checkSelectedTabUsedAuto() {
+	public CarLoans checkSelectedTabWithMileageAuto() {
 		waitElementIsVisible(driver.findElement(selectedUsedAutoTab));
 		return this;
 	}

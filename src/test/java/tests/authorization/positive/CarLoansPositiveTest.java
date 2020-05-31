@@ -21,9 +21,9 @@ public class CarLoansPositiveTest extends BaseTest {
 	void applyingForAnOldCarLoanPublicSession() {
 		basePage.goToURL(PRIVAT24_CAR_LOANS_URL);
 		carLoans
-			.checkSelectedTabUsedAuto()
-			.typeAmountFieldCarCost();
-//			.typeAmountFieldPrepaidExpense("50000");
+			.checkSelectedTabWithMileageAuto()
+			.typeAmountFieldCarCost("1500000")
+			.typeAmountFieldPrepaidExpense("900000");
 //			.selectPhoneCodeButton()
 //			.searchPhoneCountryCodeField("Russ")
 //			.selectCountryCountryRussiaFromList()

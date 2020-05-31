@@ -20,6 +20,7 @@ public class BaseTest {
 	protected CarLoans carLoans = new CarLoans(driver);
 	protected MobilePhoneReplenishment mobilePhoneReplenishment = new MobilePhoneReplenishment(driver);
 	private static final Logger LOGGER = LoggerFactory.getLogger(BaseTest.class);
+
 	/**
 	 * A static initialization block in order to clean the folders with reports and screenshots before starting the build
 	 */
