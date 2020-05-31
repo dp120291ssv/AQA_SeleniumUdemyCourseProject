@@ -19,7 +19,7 @@ public class MobilePhoneReplenishmentPositiveTest extends BaseTest {
 
 	@Test
 	@DisplayName("Public session, non-client, ")
-	void applyingForAnOldCarLoanPublicSession() {
+	void checkMinimumReplenishmentAmount() {
 		basePage.goToURL(PRIVAT24_MOBILE_REPLENISHMENT_URL);
 		mobilePhoneReplenishment
 			.enterPhoneNumber(PHONE_NUMBER_UKRAINE)
