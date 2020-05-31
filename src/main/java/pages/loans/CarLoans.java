@@ -62,7 +62,7 @@ public class CarLoans extends BasePage{
 	 * Enter the amount of the car value
 	 * @param amount the full cost of a car
 	 */
-	public CarLoans typeAmountFieldCarCost(String amount) {
+	public CarLoans enterAmountFieldCarCost(String amount) {
 		WebElement amountField = driver.findElement(amountFieldCarCost);
 		clearAndType(amountField, amount);
 		return this;
@@ -80,7 +80,7 @@ public class CarLoans extends BasePage{
 	 * Enter the advance amount for the loan
 	 * @param amount the amount of the advance payment
 	 */
-	public CarLoans typeAmountFieldPrepaidExpense(String amount) {
+	public CarLoans enterAmountFieldPrepaidExpense(String amount) {
 		WebElement amountField = driver.findElement(amountFieldPrepaidExpense);
 		clearAndType(amountField, amount);
 		return this;
@@ -90,7 +90,7 @@ public class CarLoans extends BasePage{
 	 * Filling in the mobile number to apply
 	 * @param phoneNumber mobile number to apply
 	 */
-	public CarLoans typeJustPhoneNumber(String phoneNumber) {
+	public CarLoans enterPhoneNumber(String phoneNumber) {
 		driver.findElement(phoneNumberField).clear();
 		driver.findElement(phoneNumberField).sendKeys(phoneNumber);
 		return this;
@@ -125,7 +125,7 @@ public class CarLoans extends BasePage{
 	/**
 	 * Confirmation of application for credit
 	 */
-	public CarLoans applyOrderButton() {
+	public CarLoans submitOrderButton() {
 		driver.findElement(applyOrderButton).click();
 		return this;
 	}

@@ -22,13 +22,13 @@ public class CarLoansPositiveTest extends BaseTest {
 		basePage.goToURL(PRIVAT24_CAR_LOANS_URL);
 		carLoans
 			.checkSelectedTabWithMileageAuto()
-			.typeAmountFieldCarCost("1500000")
-			.typeAmountFieldPrepaidExpense("900000")
+			.enterAmountFieldCarCost("1500000")
+			.enterAmountFieldPrepaidExpense("900000")
 			.selectPhoneCodeButton()
 			.searchPhoneCountryCodeField("Russ")
 			.selectCountryCountryRussiaFromList()
-			.typeJustPhoneNumber("000000000")
-			.applyOrderButton()
+			.enterPhoneNumber("000000000")
+			.submitOrderButton()
 			.checkIsDisplayedConfirm();
 	}
 

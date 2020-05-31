@@ -9,8 +9,13 @@ public class Constants {
 
 	public class DOMAINS_URL{
 		public static final String PRIVAT24_CAR_LOANS_URL = "https://next.privat24.ua/auto-credit/order?lang=en";
+		public static final String PRIVAT24_MOBILE_REPLENISHMENT_URL = "https://next.privat24.ua/mobile?lang=en";
 	}
 
-	public class TestData {
+	public class TestDataForMobileReplenishment {
+		public static final String PHONE_NUMBER_UKRAINE = "686979712";
+		public static final String TEST_CARD_1 = "4506909324274797";
+		public static final String EXP_DATE_CARD_1 = "0622";
+		public static final String CVV_CODE_CARD_1 = "327";
 	}
 }
