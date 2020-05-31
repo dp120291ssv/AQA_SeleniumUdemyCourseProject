@@ -29,6 +29,7 @@ public class MobilePhoneReplenishmentPositiveTest extends BaseTest {
 			.enterCvvCode(CVV_CODE_CARD_1)
 			.submitMobileReplenishment()
 			.checkPaymentAmountAndCommission("12", "1")
-			.checkPaymentCurrency("UAH", "UAH");
+			.checkPaymentCurrency("UAH", "UAH")
+			.checkPaymentCardAndRecipient(TEST_CARD_1_THE_LAST_FOUR_DIGITS, "Kyivstar Ukraine");
 	}
 }

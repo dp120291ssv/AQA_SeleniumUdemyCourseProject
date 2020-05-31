@@ -15,6 +15,7 @@ public class Constants {
 	public class TestDataForMobileReplenishment {
 		public static final String PHONE_NUMBER_UKRAINE = "686979712";
 		public static final String TEST_CARD_1 = "4506909324274797";
+		public static final String TEST_CARD_1_THE_LAST_FOUR_DIGITS = "4797";
 		public static final String EXP_DATE_CARD_1 = "0622";
 		public static final String CVV_CODE_CARD_1 = "327";
 	}

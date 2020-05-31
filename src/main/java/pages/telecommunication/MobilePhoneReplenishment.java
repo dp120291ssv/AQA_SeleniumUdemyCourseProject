@@ -89,7 +89,7 @@ public class MobilePhoneReplenishment extends BasePage {
 	 * @param recipient mobile operator
 	 */
 	public MobilePhoneReplenishment checkPaymentCardAndRecipient(String cardFrom, String recipient){
-		Assertions.assertEquals(driver.findElement(cardNumberInTheCart).getText(), cardFrom);
+		Assertions.assertEquals(driver.findElement(cardNumberInTheCart).getText().split(" ")[3], cardFrom);
 		Assertions.assertEquals(driver.findElement(recipientNameInTheCart).getText(), recipient);
 		return this;
 	}
