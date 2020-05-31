@@ -6,8 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pages.base.BasePage;
-import pages.authorization.AuthorizationPage;
-import pages.repository.RepositoryPage;
+import pages.loans.CarLoans;
+import pages.telecommunication.MobilePhoneReplenishment;
 import java.io.File;
 import java.time.LocalTime;
 import java.util.Objects;
@@ -17,8 +17,8 @@ public class BaseTest {
 	protected CommonActions commonActions = CommonActions.getInstance();
 	protected WebDriver driver = commonActions.driver;
 	protected BasePage basePage = new BasePage(driver);
-	protected AuthorizationPage authorizationPage = new AuthorizationPage(driver);
-	protected RepositoryPage repositoryPage = new RepositoryPage(driver);
+	protected CarLoans carLoans = new CarLoans(driver);
+	protected MobilePhoneReplenishment mobilePhoneReplenishment = new MobilePhoneReplenishment(driver);
 	private static final Logger LOGGER = LoggerFactory.getLogger(BaseTest.class);
 	/**
 	 * A static initialization block in order to clean the folders with reports and screenshots before starting the build

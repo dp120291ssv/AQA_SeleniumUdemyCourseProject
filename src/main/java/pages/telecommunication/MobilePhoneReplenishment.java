@@ -1,4 +1,4 @@
-package pages.repository;
+package pages.telecommunication;
 
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
@@ -6,9 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pages.base.BasePage;
 
-public class RepositoryPage extends BasePage {
+public class MobilePhoneReplenishment extends BasePage {
 
-	public RepositoryPage(WebDriver driver) {
+	public MobilePhoneReplenishment(WebDriver driver) {
 		super(driver);
 	}
 
@@ -27,7 +27,7 @@ public class RepositoryPage extends BasePage {
 	/**
 	 * Submit New button to create a repository
 	 * */
-	public RepositoryPage submitCreateNewRepository(){
+	public MobilePhoneReplenishment submitCreateNewRepository(){
 		driver.findElement(buttonNewRepository).click();
 		return this;
 	}
@@ -36,7 +36,7 @@ public class RepositoryPage extends BasePage {
 	 * Submit New button to create a repository
 	 * @param repositoryName new repository name
 	 * */
-	public RepositoryPage enterTheRepositoryName(String repositoryName){
+	public MobilePhoneReplenishment enterTheRepositoryName(String repositoryName){
 		driver.findElement(inputRepositoryName).sendKeys(repositoryName);
 		return this;
 	}
@@ -44,7 +44,7 @@ public class RepositoryPage extends BasePage {
 	/**
 	 * Select radio button to make the repository private
 	 * */
-	public RepositoryPage selectRadioButtonPrivate(){
+	public MobilePhoneReplenishment selectRadioButtonPrivate(){
 		driver.findElement(radioButtonPrivat).click();
 		return this;
 	}
@@ -52,7 +52,7 @@ public class RepositoryPage extends BasePage {
 	/**
 	 * Selecting a checkbox to create a file README
 	 * */
-	public RepositoryPage selectCheckboxInitReadMe(){
+	public MobilePhoneReplenishment selectCheckboxInitReadMe(){
 		driver.findElement(checkBoxInitReadMe).click();
 		return this;
 	}
@@ -60,7 +60,7 @@ public class RepositoryPage extends BasePage {
 	/**
 	 * Confirm repository creation
 	 * */
-	public RepositoryPage submitCreateRepository(){
+	public MobilePhoneReplenishment submitCreateRepository(){
 		driver.findElement(buttonCreateRepository).submit();
 		return this;
 	}
@@ -68,7 +68,7 @@ public class RepositoryPage extends BasePage {
 	/**
 	 * Select the settings tab in the repository
 	 * */
-	public RepositoryPage selectTabSettings(){
+	public MobilePhoneReplenishment selectTabSettings(){
 		driver.findElement(tabSettings).click();
 		return this;
 	}
@@ -76,7 +76,7 @@ public class RepositoryPage extends BasePage {
 	/**
 	 * Select delete repository
 	 * */
-	public RepositoryPage selectDeleteRepository(){
+	public MobilePhoneReplenishment selectDeleteRepository(){
 		driver.findElement(buttonDeleteRepository).click();
 		return this;
 	}
@@ -84,7 +84,7 @@ public class RepositoryPage extends BasePage {
 	/**
 	 * Enter username and repository name to confirm deletion
 	 * */
-	public RepositoryPage enterUsernameAndRepositoryNameToConfirmDeletion(String userAndRepositoryName){
+	public MobilePhoneReplenishment enterUsernameAndRepositoryNameToConfirmDeletion(String userAndRepositoryName){
 		driver.findElement(inputVerify).sendKeys(userAndRepositoryName);
 		return this;
 	}
@@ -92,7 +92,7 @@ public class RepositoryPage extends BasePage {
 	/**
 	 * Confirm delete repository
 	 * */
-	public RepositoryPage confirmDeleteRepository(){
+	public MobilePhoneReplenishment confirmDeleteRepository(){
 		driver.findElement(buttonConfirmDeleteRepository).click();
 		return this;
 	}
@@ -100,7 +100,7 @@ public class RepositoryPage extends BasePage {
 	/**
 	 * Confirm repository creation
 	 * */
-	public RepositoryPage checkIsCorrectRepositoryName(String nameOfRepository){
+	public MobilePhoneReplenishment checkIsCorrectRepositoryName(String nameOfRepository){
 		WebElement actualRepositoryName = driver.findElement(repositoryName);
 		Assertions.assertEquals(nameOfRepository, actualRepositoryName.getText());
 		return this;
@@ -109,7 +109,7 @@ public class RepositoryPage extends BasePage {
 	/**
 	 * Chech the message that the repository is deleted
 	 * */
-	public RepositoryPage сheckTheMessageThatTheRepositoryIsDeleted(String expectedMessage){
+	public MobilePhoneReplenishment сheckTheMessageThatTheRepositoryIsDeleted(String expectedMessage){
 		Assertions.assertEquals(expectedMessage, driver.findElement(messageThatRepositoryIsDeleted).getAttribute("outerText"));
 		return this;
 	}

@@ -1,5 +1,6 @@
 package pages.base;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -22,4 +23,14 @@ public class BasePage {
         new WebDriverWait(driver, EXPLICIT_WAIT).until(ExpectedConditions.visibilityOf(element));
         return element;
     }
+
+	/**
+	 * A method that cleans the element of the text and enters the desired text
+	 * @param element Selenium WebElement
+	 * @param value text
+	 */
+	protected void clearAndType(WebElement element, String value){
+		while (!element.getAttribute("value").equals("")) element.sendKeys(Keys.BACK_SPACE);
+		element.sendKeys(value);
+	}
 }
