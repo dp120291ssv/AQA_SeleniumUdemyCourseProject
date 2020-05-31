@@ -28,6 +28,7 @@ public class MobilePhoneReplenishmentPositiveTest extends BaseTest {
 			.enterExpDate(EXP_DATE_CARD_1)
 			.enterCvvCode(CVV_CODE_CARD_1)
 			.submitMobileReplenishment()
-			.checkPaymentAmountAndCommission("12", "1");
+			.checkPaymentAmountAndCommission("12", "1")
+			.checkPaymentCurrency("UAH", "UAH");
 	}
 }

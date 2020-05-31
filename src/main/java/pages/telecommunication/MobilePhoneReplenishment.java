@@ -89,7 +89,8 @@ public class MobilePhoneReplenishment extends BasePage {
 	 * @param recipient mobile operator
 	 */
 	public MobilePhoneReplenishment checkPaymentCardAndRecipient(String cardFrom, String recipient){
-
+		Assertions.assertEquals(driver.findElement(cardNumberInTheCart).getText(), cardFrom);
+		Assertions.assertEquals(driver.findElement(recipientNameInTheCart).getText(), recipient);
 		return this;
 	}
 
@@ -105,10 +106,13 @@ public class MobilePhoneReplenishment extends BasePage {
 	}
 
 	/**
-	 *
+	 * Check the currency of the payment amount and currency of fee
+	 * @param currencyAmount currency of the payment
+	 * @param commissionAmount currency of fee
 	 */
-	public MobilePhoneReplenishment checkPaymentCurrency(String Amount, String commission){
-
+	public MobilePhoneReplenishment checkPaymentCurrency(String currencyAmount, String commissionAmount){
+		Assertions.assertEquals(driver.findElement(amountCurrencyInTheCard).getText().split(" ")[1], currencyAmount);
+		Assertions.assertEquals(driver.findElement(commissionCurrencyInTheCard).getText().split(" ")[1], commissionAmount);
 		return this;
 	}
 }
