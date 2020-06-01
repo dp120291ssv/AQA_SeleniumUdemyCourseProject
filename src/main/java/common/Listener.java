@@ -24,7 +24,7 @@ public class Listener implements TestWatcher, BeforeAllCallback, AfterEachCallba
     }
 
 	/**
-	 * CloseableResource implementation, adding value into GLOBAL context is required to  registers a callback hook
+	 * CloseableResource implementation, adding value into GLOBAL context is required to registers a callback hook
 	 * With such steps close() method will be executed only once in the end of test execution
 	 */
 	@Override

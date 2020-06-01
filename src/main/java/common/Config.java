@@ -10,5 +10,5 @@ public class Config {
 	/**Clean the directory with the screen before starting the build*/
 	public static boolean CLEAR_REPORTS_DIR = true;
 	/**Whether to keep the browser open after the tests*/
-	public static final boolean HOLD_BROWSER_OPEN = true;
+	public static final boolean HOLD_BROWSER_OPEN = false;
 }

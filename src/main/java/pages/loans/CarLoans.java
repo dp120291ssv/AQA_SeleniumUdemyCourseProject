@@ -1,6 +1,5 @@
 package pages.loans;
 
-import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.*;
 import pages.base.BasePage;
 
