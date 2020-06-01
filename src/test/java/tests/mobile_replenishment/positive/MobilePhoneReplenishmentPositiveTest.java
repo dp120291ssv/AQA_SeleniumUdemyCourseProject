@@ -1,4 +1,4 @@
-package tests.repository.positive;
+package tests.mobile_replenishment.positive;
 
 import common.Listener;
 import io.qameta.allure.Feature;
@@ -23,7 +23,7 @@ import static constants.Constants.TestDataForMobileReplenishment.*;
 public class MobilePhoneReplenishmentPositiveTest extends BaseTest {
 
 	@Test
-	@DisplayName("Public session, non-client, ")
+	@DisplayName("Public session, non-client, replenishment of mobile numbers for the minimum amount")
 	void checkMinimumReplenishmentAmount() {
 		basePage.goToURL(PRIVAT24_MOBILE_REPLENISHMENT_URL);
 		mobilePhoneReplenishment
@@ -36,5 +36,14 @@ public class MobilePhoneReplenishmentPositiveTest extends BaseTest {
 			.checkPaymentAmountAndCommission("1", "1")
 			.checkPaymentCurrency(CURRENCY_UAH, CURRENCY_UAH)
 			.checkPaymentCardAndRecipient(TEST_CARD_1_THE_LAST_FOUR_DIGITS, "Kyivstar Ukraine");
+	}
+
+	@Test
+	@DisplayName("Public session, non-client, redirect checking for authorization, after selecting card from wallet")
+	void checkRedirectOnAuthorization() {
+		basePage.goToURL(PRIVAT24_MOBILE_REPLENISHMENT_URL);
+		mobilePhoneReplenishment
+			.selectCardFromWallet()
+			.checkIsDisplayedAuthWidget();
 	}
 }

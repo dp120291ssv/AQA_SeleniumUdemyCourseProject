@@ -24,6 +24,7 @@ public class MobilePhoneReplenishment extends BasePage {
 	private final By commissionInTheCart = By.xpath("//span[@data-qa-node='commission']");
 	private final By amountCurrencyInTheCard = By.xpath("//small[@data-qa-node='currency']");
 	private final By commissionCurrencyInTheCard = By.xpath("//small[@data-qa-node='commission-currency']");
+	private final By walletButton = By.xpath("//div[@data-qa-node='debitSourceSource']");
 
 	/**
 	 * Enter a phone number excluding country code
@@ -80,6 +81,14 @@ public class MobilePhoneReplenishment extends BasePage {
 	 */
 	public MobilePhoneReplenishment submitMobileReplenishment(){
 		driver.findElement(buttonSubmitPayment).click();
+		return this;
+	}
+
+	/**
+	 * Choose a card from the wallet
+	 */
+	public MobilePhoneReplenishment selectCardFromWallet(){
+		driver.findElement(walletButton).click();
 		return this;
 	}
 

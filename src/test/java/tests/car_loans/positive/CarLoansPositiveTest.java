@@ -1,4 +1,4 @@
-package tests.authorization.positive;
+package tests.car_loans.positive;
 
 import common.Listener;
 import io.qameta.allure.Feature;
