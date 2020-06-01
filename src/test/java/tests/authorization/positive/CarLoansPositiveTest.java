@@ -7,6 +7,8 @@ import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 import tests.base.BaseTest;
 import static constants.Constants.DOMAINS_URL.PRIVAT24_CAR_LOANS_URL;
 
@@ -14,6 +16,7 @@ import static constants.Constants.DOMAINS_URL.PRIVAT24_CAR_LOANS_URL;
 @Feature("Tests to check credit for cars")
 @Story("A positive scenario")
 @ExtendWith(Listener.class)
+@Execution(ExecutionMode.CONCURRENT)
 public class CarLoansPositiveTest extends BaseTest {
 
 	@Test
@@ -33,7 +36,7 @@ public class CarLoansPositiveTest extends BaseTest {
 	}
 
 	@Test
-	@DisplayName("Публичная сессия, просмотр договора")
+	@DisplayName("Public session, non-client, reviewing the contract")
 	void selectAgreementsTabInPubSession() {
 		basePage.goToURL(PRIVAT24_CAR_LOANS_URL);
 		carLoans

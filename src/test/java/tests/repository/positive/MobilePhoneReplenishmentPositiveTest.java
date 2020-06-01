@@ -7,6 +7,8 @@ import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 import tests.base.BaseTest;
 
 import static constants.Constants.CURRENCY.CURRENCY_UAH;
@@ -17,6 +19,7 @@ import static constants.Constants.TestDataForMobileReplenishment.*;
 @Feature("Tests to check the operation of replenishment of the mobile phone number")
 @Story("A positive scenario")
 @ExtendWith(Listener.class)
+@Execution(ExecutionMode.CONCURRENT)
 public class MobilePhoneReplenishmentPositiveTest extends BaseTest {
 
 	@Test
