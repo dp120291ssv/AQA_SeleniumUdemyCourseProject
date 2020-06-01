@@ -1,7 +1,6 @@
 package pages.loans;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
 import pages.base.BasePage;
 
 public class CarLoans extends BasePage{
@@ -10,19 +9,14 @@ public class CarLoans extends BasePage{
 		super(driver);
 	}
 
-	private final By agreementsTab = By.xpath("//div[contains(text(), 'Договори') and .//parent::a[@href='/auto-credit/my']]");
-	private final By authWidgetP24New = By.xpath("//iframe[starts-with(@src,'https://login-widget')]");
+	private final By agreementsTab = By.xpath("//div[contains(text(), 'Agreements') and .//parent::a[@href='/auto-credit/my']]");
 	private final By amountFieldCarCost = By.xpath("//input[@data-qa-node='amount']");
 	private final By amountFieldPrepaidExpense = By.xpath("//input[@data-qa-node='prepaid']");
 	private final By phoneCodeButton = By.xpath("//button[@data-qa-node='phone-code']");
 	private final By searchPhoneCodeField = By.xpath("//input[@placeholder = 'Search' and .//ancestor::div[@data-qa-node]]");
 	private final By phoneNumberField = By.xpath("//input[@data-qa-node = 'phone-number' and @placeholder = '000000000']");
 	private final By applyOrderButton = By.xpath("//button[@type = 'button' and contains(text(), 'Submit an application')]");
-	private final By applyOrderButtonInAgreements = By.xpath("//button[contains(text(), 'Оформити') and .//ancestor::a[@href='/auto-credit/order']]");
-	private final By getALoanSection = By.xpath("//div[contains(text(), 'Оформити') and .//parent::a[@href='/auto-credit/order']]");
 	private final By selectedUsedAutoTab = By.xpath("//div[@data-qa-node='type' and contains(text(), 'With mileage')]");
-	private final By newAutoTypeTab = By.xpath("//label[@data-id='new' and contains(text(), 'Нове')]");
-	private final By sliderButtonSum = By.xpath("(//input[@value]//following-sibling::div//button)[2]");
 	private final By confirmForm = By.xpath("//div[contains(text(), 'One-time password has been forwarded to your phone')]");
 	private final By buttonCountryRussia = By.xpath("//div[@name='Russia']");
 
@@ -31,15 +25,6 @@ public class CarLoans extends BasePage{
 	 */
 	public CarLoans selectAgreementsTab(){
 		driver.findElement(agreementsTab).click();
-		return this;
-	}
-
-	/**
-	 * Checking whether a frame for authorization
-	 */
-	public CarLoans checkIsDisplayedAuthWidget(){
-		WebElement authFrame = driver.findElement(authWidgetP24New);
-		waitElementIsVisible(authFrame);
 		return this;
 	}
 
@@ -122,13 +107,4 @@ public class CarLoans extends BasePage{
 		driver.findElement(buttonCountryRussia).click();
 		return this;
 	}
-
-	//	/**
-//	 * Проверка суммы аванса после перетаскивания с предыдущим значением аванса ==========
-//	 */
-//	public CarLoans checkPrepaidExpenseSumAfterDragAndDrop(String oldSum) {
-//		Assert.assertNotSame($x("//input[@data-qa-node='prepaid']").getAttribute("value"), oldSum);
-//		return this;
-//	}
-
 }

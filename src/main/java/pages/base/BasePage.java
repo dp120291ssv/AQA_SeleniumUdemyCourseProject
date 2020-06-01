@@ -1,20 +1,19 @@
 package pages.base;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pages.loans.CarLoans;
-
 import static constants.Constants.TimeoutVariables.EXPLICIT_WAIT;
 
 public class BasePage {
 
     public WebDriver driver;
+	private final By authWidgetP24New = By.xpath("//iframe[starts-with(@src,'https://login-widget')]");
 
-    public BasePage(WebDriver driver){
+	public BasePage(WebDriver driver){
         this.driver = driver;
     }
 
@@ -44,13 +43,10 @@ public class BasePage {
 	}
 
 	/**
-	 * A method for operating the slider
-	 * @param element the element slider which is necessary to pull
-	 * @param x the x-axis
-	 * @param y the y-axis
+	 * Checking whether a frame for authorization
 	 */
-	public void dragAndDropSum(WebElement element, int x, int y) {
-		Actions actions = new Actions(driver);
-		actions.dragAndDropBy(element, x, x).perform();
+	public void checkIsDisplayedAuthWidget(){
+		WebElement authFrame = driver.findElement(authWidgetP24New);
+		waitElementIsVisible(authFrame);
 	}
 }

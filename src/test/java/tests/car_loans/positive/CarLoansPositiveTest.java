@@ -1,4 +1,4 @@
-package tests.authorization.positive;
+package tests.car_loans.positive;
 
 import tests.base.Listener;
 import io.qameta.allure.Feature;
@@ -32,7 +32,7 @@ public class CarLoansPositiveTest extends BaseTest {
 	}
 
 	@Test
-	@DisplayName("Публичная сессия, просмотр договора")
+	@DisplayName("Public session, non-client, reviewing the contract")
 	void selectAgreementsTabInPubSession() {
 		basePage.goToURL(PRIVAT24_CAR_LOANS_URL);
 		carLoans

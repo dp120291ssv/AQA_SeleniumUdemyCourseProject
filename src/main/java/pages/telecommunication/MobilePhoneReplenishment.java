@@ -24,6 +24,7 @@ public class MobilePhoneReplenishment extends BasePage {
 	private final By commissionInTheCart = By.xpath("//span[@data-qa-node='commission']");
 	private final By amountCurrencyInTheCard = By.xpath("//small[@data-qa-node='currency']");
 	private final By commissionCurrencyInTheCard = By.xpath("//small[@data-qa-node='commission-currency']");
+	private final By walletButton = By.xpath("//div[@data-qa-node='debitSourceSource']");
 
 	/**
 	 * Enter a phone number excluding country code
@@ -84,6 +85,14 @@ public class MobilePhoneReplenishment extends BasePage {
 	}
 
 	/**
+	 * Choose a card from the wallet
+	 */
+	public MobilePhoneReplenishment selectCardFromWallet(){
+		driver.findElement(walletButton).click();
+		return this;
+	}
+
+	/**
 	 * Check the card number with which the payment and the recipient
 	 * @param cardFrom the card number for payment
 	 * @param recipient mobile operator
@@ -100,7 +109,7 @@ public class MobilePhoneReplenishment extends BasePage {
 	 * @param commission the commission in addition to mobile account
 	 */
 	public MobilePhoneReplenishment checkPaymentAmountAndCommission(String amount, String commission){
-		Assertions.assertEquals(driver.findElement(amountInTheCart).getText(), amount);
+		Assertions.assertEquals(waitElementIsVisible(driver.findElement(amountInTheCart)).getText(), amount);
 		Assertions.assertEquals(driver.findElement(commissionInTheCart).getText(), commission);
 		return this;
 	}
