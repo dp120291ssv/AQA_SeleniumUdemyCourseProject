@@ -1,6 +1,6 @@
 package tests.authorization.positive;
 
-import common.Listener;
+import tests.base.Listener;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Link;
 import io.qameta.allure.Story;
@@ -13,7 +13,6 @@ import static constants.Constants.DOMAINS_URL.PRIVAT24_CAR_LOANS_URL;
 @Link(name = "check-list", url = "https://docs.google.com/spreadsheets/d/19e7u4TNyf2yRV6iJE8o1G2JlythWVH8MZPxyqZtf_Xo")
 @Feature("Tests to check credit for cars")
 @Story("A positive scenario")
-@ExtendWith(Listener.class)
 public class CarLoansPositiveTest extends BaseTest {
 
 	@Test
