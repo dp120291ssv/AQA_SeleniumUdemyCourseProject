@@ -1,7 +1,7 @@
 package pages.loans;
 
-import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import pages.base.BasePage;
 
 public class CarLoans extends BasePage{
@@ -26,29 +26,22 @@ public class CarLoans extends BasePage{
 	private final By confirmForm = By.xpath("//div[contains(text(), 'One-time password has been forwarded to your phone')]");
 	private final By buttonCountryRussia = By.xpath("//div[@name='Russia']");
 
-//	/**
-//	 * Выбор вкладки Договоры ======
-//	 */
-//	public CarLoans selectAgreementsTab(){
-//		agreementsTab.should(visible).click();
-//		return this;
-//	}
+	/**
+	 * Selecting a tab agreements
+	 */
+	public CarLoans selectAgreementsTab(){
+		driver.findElement(agreementsTab).click();
+		return this;
+	}
 
-//	/**
-//	 * Выбор вкладки "Новое" авто =========
-//	 */
-//	public CarLoans selectTabANewAuto(){
-//		newAutoTypeTab.should(visible).click();
-//		return this;
-//	}
-
-//	/**
-//	 * Проверка отображения виджета для авторизации ======
-//	 */
-//	public CarLoans checkIsDisplayedAuthWidget(){
-//		authWidgetP24New.should(exist);
-//		return this;
-//	}
+	/**
+	 * Checking whether a frame for authorization
+	 */
+	public CarLoans checkIsDisplayedAuthWidget(){
+		WebElement authFrame = driver.findElement(authWidgetP24New);
+		waitElementIsVisible(authFrame);
+		return this;
+	}
 
 	/**
 	 * Test display of the form confirmation of transaction
@@ -67,14 +60,6 @@ public class CarLoans extends BasePage{
 		clearAndType(amountField, amount);
 		return this;
 	}
-
-//	/**
-//	 * Проверка суммы аванса после перетаскивания с предыдущим значением аванса ==========
-//	 */
-//	public CarLoans checkPrepaidExpenseSumAfterDragAndDrop(String oldSum) {
-//		Assert.assertNotSame($x("//input[@data-qa-node='prepaid']").getAttribute("value"), oldSum);
-//		return this;
-//	}
 
 	/**
 	 * Enter the advance amount for the loan
@@ -114,14 +99,6 @@ public class CarLoans extends BasePage{
 		return this;
 	}
 
-//	/**
-//	 * Выбор вопроса из списка вопросов
-//	 */
-//	public CarLoans selectSomeQuestion(String text) {
-//		$x("//div[contains(text(), '" + text + "')]").should(visible).click();
-//		return this;
-//	}
-
 	/**
 	 * Confirmation of application for credit
 	 */
@@ -138,14 +115,6 @@ public class CarLoans extends BasePage{
 		return this;
 	}
 
-//	/**
-//	 * Проверка, что выбран таб "Авто с пробегом"
-//	 */
-//	public CarLoans checkSelectedGetALoanSection() {
-//		getALoanSection.should(visible);
-//		return this;
-//	}
-
 	/**
 	 * Select the country code from the drop down list
 	 */
@@ -154,12 +123,11 @@ public class CarLoans extends BasePage{
 		return this;
 	}
 
-//	/**
-//	 * Перетаскивание суммы кредита на слайдере =======
+	//	/**
+//	 * Проверка суммы аванса после перетаскивания с предыдущим значением аванса ==========
 //	 */
-//	public CarLoans dragAndDropSum() {
-//		Actions actions = new Actions(WebDriverRunner.getWebDriver());
-//		actions.dragAndDropBy(sliderButtonSum, 600, 0).perform();
+//	public CarLoans checkPrepaidExpenseSumAfterDragAndDrop(String oldSum) {
+//		Assert.assertNotSame($x("//input[@data-qa-node='prepaid']").getAttribute("value"), oldSum);
 //		return this;
 //	}
 

@@ -32,29 +32,12 @@ public class CarLoansPositiveTest extends BaseTest {
 			.checkIsDisplayedConfirm();
 	}
 
-//	@Test
-//	@DisplayName("Публичная сессия, клиент, подача заявки на кредит на новое авто")
-//	void applyingForANewCarLoanPublicSession() {
-//		basePage.goToURL(PRIVAT24_CAR_LOANS_URL);
-//		carLoans
-//			.selectTabANewAuto()
-//			.typeAmountFieldCarCost("1400000")
-//			.dragAndDropSum()
-//			.checkPrepaidExpenseSumAfterDragAndDrop("1400000")
-//			.selectPhoneCodeButton()
-//			.searchPhoneCuntryCodeField("Укр")
-//			.selectCuntryCodeButtonFromList("Україна")
-//			.typeJustPhoneNumber("686979712")
-//			.applyOrderButton()
-//			.checkIsDisplayedAuthWidget();
-//	}
-//
-//	@Test
-//	@DisplayName("Публичная сессия, просмотр договора")
-//	void selectAgreementsTabInPubSession() {
-//		basePage.goToURL(PRIVAT24_CAR_LOANS_URL);
-//		carLoans
-//			.selectAgreementsTab()
-//			.checkIsDisplayedAuthWidget();
-//	}
+	@Test
+	@DisplayName("Публичная сессия, просмотр договора")
+	void selectAgreementsTabInPubSession() {
+		basePage.goToURL(PRIVAT24_CAR_LOANS_URL);
+		carLoans
+			.selectAgreementsTab()
+			.checkIsDisplayedAuthWidget();
+	}
 }
