@@ -23,7 +23,10 @@ public class Listener implements TestWatcher, BeforeAllCallback, AfterEachCallba
         extensionContext.getRoot().getStore(GLOBAL).put(true, this);
     }
 
-
+	/**
+	 * CloseableResource implementation, adding value into GLOBAL context is required to  registers a callback hook
+	 * With such steps close() method will be executed only once in the end of test execution
+	 */
 	@Override
 	public void close(){
     	if(!HOLD_BROWSER_OPEN){

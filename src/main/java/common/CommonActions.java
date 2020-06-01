@@ -11,6 +11,9 @@ public class CommonActions {
     public WebDriver driver;
     public static CommonActions instance = null;
 
+    /**
+     *Select and install the driver according to the selected version in the config
+	 */
     public CommonActions() {
         switch (BROWSER_NAME) {
             case "chrome_mac":
