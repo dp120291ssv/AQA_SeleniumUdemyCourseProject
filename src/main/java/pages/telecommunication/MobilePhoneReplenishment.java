@@ -109,7 +109,7 @@ public class MobilePhoneReplenishment extends BasePage {
 	 * @param commission the commission in addition to mobile account
 	 */
 	public MobilePhoneReplenishment checkPaymentAmountAndCommission(String amount, String commission){
-		Assertions.assertEquals(driver.findElement(amountInTheCart).getText(), amount);
+		Assertions.assertEquals(waitElementIsVisible(driver.findElement(amountInTheCart)).getText(), amount);
 		Assertions.assertEquals(driver.findElement(commissionInTheCart).getText(), commission);
 		return this;
 	}
