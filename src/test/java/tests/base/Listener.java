@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 import java.io.File;
 import java.io.IOException;
 
-public class Listener implements TestWatcher{
+public class Listener implements TestWatcher {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Listener.class);
 
@@ -25,7 +25,7 @@ public class Listener implements TestWatcher{
             FileUtils.copyFile(source, new File("build/reports/tests/" + screenshotName + ".png"));
             LOGGER.info("Screenshot \"{}\" was saved in build/reports/tests ", screenshotName);
         } catch (IOException e) {
-			LOGGER.info("Exception on saving screenshot!");
+            LOGGER.info("Exception on saving screenshot!");
             e.printStackTrace();
         }
         attachScreenshotToAllure(ts);
