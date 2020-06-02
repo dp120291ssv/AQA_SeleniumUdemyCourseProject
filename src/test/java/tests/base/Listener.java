@@ -6,7 +6,6 @@ import org.junit.jupiter.api.extension.*;
 import org.openqa.selenium.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.io.File;
 import java.io.IOException;
 

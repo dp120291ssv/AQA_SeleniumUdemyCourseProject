@@ -6,12 +6,11 @@ import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import tests.base.BaseTest;
-
 import static constants.Constants.CURRENCY.CURRENCY_UAH;
 import static constants.Constants.DOMAINS_URL.PRIVAT24_MOBILE_REPLENISHMENT_URL;
 import static constants.Constants.TestDataForMobileReplenishment.*;
 
-@Link(name = "check-list", url = "https://docs.google.com/spreadsheets/d/19e7u4TNyf2yRV6iJE8o1G2JlythWVH8MZPxyqZtf_Xo")
+@Link(name = "check-list", url = "https://docs.google.com/spreadsheets/d/19e7u4TNyf2yRV6iJE8o1G2JlythWVH8MZPxyqZtf_Xo/edit?usp=sharing")
 @Feature("Tests to check the operation of replenishment of the mobile phone number")
 @Story("A positive scenario")
 public class MobilePhoneReplenishmentPositiveTest extends BaseTest {
